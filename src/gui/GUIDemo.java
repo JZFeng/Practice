@@ -16,15 +16,10 @@ public class GUIDemo
         f.setLocation(300, 200);
         f.setLayout(new FlowLayout());
 
-        Button b = new Button("我是一个按钮");
+        Button b = new Button("I am a button");
 
         f.add(b);
-
-
         f.setVisible(true);
-        System.out.println("Hello Java World, JZ!");
-        System.out.println("Hello Java World, JZ!");
-        System.out.println("Hello World");
     }
 
 }
