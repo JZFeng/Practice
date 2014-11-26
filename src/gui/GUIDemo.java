@@ -20,9 +20,10 @@ public class GUIDemo
 
         f.add(b);
 
-//        f.addWindowListener(new MyWin());
 
         f.setVisible(true);
+        System.out.println("Hello Java World, JZ!");
+        System.out.println("Hello Java World, JZ!");
         System.out.println("Hello Java World, JZ!");
     }
 
