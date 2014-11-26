@@ -24,7 +24,7 @@ public class GUIDemo
         f.setVisible(true);
         System.out.println("Hello Java World, JZ!");
         System.out.println("Hello Java World, JZ!");
-        System.out.println("Hello World!");
+        System.out.println("Hello World");
     }
 
 }
