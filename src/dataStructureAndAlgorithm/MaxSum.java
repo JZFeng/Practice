@@ -88,7 +88,7 @@ public class MaxSum
     }
 
  /*
-  * 分治法必须要用递归，把大的问题分解成小的问题。
+  * division and conquer分治法必须要用递归，把大的问题分解成小的问题。
   * */
     public static int maxSum3(int[] a, int left, int right)
     {
