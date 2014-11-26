@@ -77,7 +77,7 @@ public class GUIDemo
 //        f.addWindowListener(new MyWin());
 
         f.setVisible(true);
-        System.out.println("Hello world!");
+        System.out.println("Hello Java World!");
     }
 
 }
