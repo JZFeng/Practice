@@ -20,7 +20,7 @@ public class PowerX
         return result;
     }
 
-    //一次问题减半了。
+    //O(1), problem reduced to half
     public static long pow2(int x, int n)
     {
         long result = 0;
