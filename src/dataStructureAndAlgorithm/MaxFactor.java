@@ -2,22 +2,30 @@ package dataStructureAndAlgorithm;
 
 public class MaxFactor
 {
-    public static long gcd(long m, long n)
+    public static long gcd(long a, long b)
     {
-        while (n != 0)
+        
+        if(a<b)
         {
-            long rem = m % n;
-            m = n;
-            n = rem;
+            long tmp = a;
+            a= b;
+            b= tmp;
         }
-        return m;
+        
+        while (b!=0)
+        {
+            long rem = a % b;
+            a = b;
+            b = rem;
+        }
+        
+        return a;
+        
     }
 
     // Test program
     public static void main(String[] args)
     {
-        System.out.println(45/10);
-        System.out.println("gcd( 45, 10 ) = " + gcd(45, 10));
-        System.out.println("gcd( 1989, 1590 ) = " + gcd(1989, 1590));
+        System.out.println(gcd(45, 39));
     }
 }
