@@ -15,24 +15,28 @@ public class ArrayListDemo
             al.add(new Integer(i));
         }
 
-        
         Iterator<Integer> itr = al.iterator();
         while (itr.hasNext())
         {
             Integer tmp = itr.next();
-            if(tmp%2 == 0)
+            if (tmp % 2 == 0)
             {
                 itr.remove();
             }
         }
-        
-        itr = al.iterator();
-        while (itr.hasNext())
-        {
-            System.out.println(itr.next());
-        }
 
-        
+        // itr = al.iterator();
+        // while (itr.hasNext())
+        // {
+        // System.out.println(itr.next());
+        // }
+
+        int[] a = new int[10];
+        System.out.println(a.length);
+
     }
+
+    
+    
 
 }
