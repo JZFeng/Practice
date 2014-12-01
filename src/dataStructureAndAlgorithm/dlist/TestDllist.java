@@ -4,11 +4,11 @@ public class TestDllist
 {
     public static void main(String[] args)
     {
+        Object[] a = {9,7,5,3,1};
+        
 
-        DlList dl = new DlList();
+        DlList dl = new DlList(a);
 
-        for (int i = 0; i < 10; i++)
-            dl.insert((i + 1), new Integer(i + 1));
         print(dl);
 
     }
