@@ -2,7 +2,6 @@ package dataStructureAndAlgorithm.dList;
 
 public class DlList
 {
-
     Dlnode dlhead;// Á´±í±íÍ·
 
     int size;
