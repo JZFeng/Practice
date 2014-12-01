@@ -5,7 +5,6 @@ public class DlList
     Dlnode dlhead;// Á´±í±íÍ·
 
     int size;
-
     public DlList()
     {
         dlhead = new Dlnode();
