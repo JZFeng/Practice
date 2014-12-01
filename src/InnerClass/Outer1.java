@@ -15,7 +15,7 @@ public class Outer1
 
     // 静态内部类可以用public,protected,private修饰
     // 静态内部类中可以定义静态或者非静态的成员
-    static class Inner
+    private static class Inner
     {
         static int inner_i = 100;
 

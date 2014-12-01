@@ -5,7 +5,6 @@ public class TestDllist
     public static void main(String[] args)
     {
         Object[] a = {9,7,5,3,1};
-        
 
         DlList dl = new DlList(a);
 

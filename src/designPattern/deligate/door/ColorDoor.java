@@ -2,11 +2,12 @@ package designPattern.deligate.door;
 
 public class ColorDoor extends Door {
 	
-	int color;
+	  int color;
+	  public int length;
 
 	@Override
 	public void open() {
-		System.out.println("Color Door Open.");
+		System.out.println("Color Door Open."+length);
 
 	}
 
