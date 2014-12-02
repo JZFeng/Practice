@@ -3,6 +3,7 @@ package dataStructureAndAlgorithm.doubleLinkedList;
 public class DoubleLinkedList
 {
     Dlnode dlhead;
+
     int size;
 
     public DoubleLinkedList()
@@ -44,6 +45,13 @@ public class DoubleLinkedList
 
     }
 
+    public void addAfter(Dlnode p, Object x)
+    {
+        Dlnode newNode = new Dlnode(p, x, p.next);
+        p.next.prior = newNode;
+        p.next = newNode;
+    }
+
     public void clear()
     {
         dlhead = new Dlnode();
@@ -53,21 +61,6 @@ public class DoubleLinkedList
     }
 
     // normal solution.
-    public Dlnode index(int index)
-    {
-
-        if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException();
-
-        Dlnode p = dlhead;
-
-        for (int i = 0; i <= index; i++)
-        {
-            p = p.next;
-        }
-
-        return p;
-    }
 
     // better solution
     public Dlnode getNodeAtIndex(int index)
@@ -76,6 +69,10 @@ public class DoubleLinkedList
             throw new IndexOutOfBoundsException();
 
         Dlnode p = dlhead;
+
+        /*
+         * for (int i = 0; i <= index; i++) { p = p.next; }
+         */
 
         if (index < (size >> 1))
             for (int i = 0; i <= index; i++)
@@ -95,27 +92,6 @@ public class DoubleLinkedList
         return p;
 
     }
-
-    /**
-     * 寰楀埌绗琲涓妭鐐圭殑data鍊�
-     * 
-     * @param index
-     * @return
-     */
-    public Object get(int index)
-    {
-        Dlnode p;
-        if (index <= 0 || index > size)
-            return null;
-        else
-        {
-            p = getNodeAtIndex(index);
-            return p.getData();
-
-        }
-
-    }
-
 
     public int len()
     {
@@ -188,8 +164,8 @@ public class DoubleLinkedList
     }
 
     /*
-     remove the node at specified index
-     * */
+     * remove the node at specified index
+     */
     public Object remove(int index)
     {
         if (index < 0 || index >= size)
@@ -215,7 +191,5 @@ public class DoubleLinkedList
     {
         return dlhead.next == dlhead;
     }
-    
-    
 
 }
