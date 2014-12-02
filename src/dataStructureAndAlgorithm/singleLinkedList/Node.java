@@ -3,12 +3,7 @@ package dataStructureAndAlgorithm.singleLinkedList;
 public class Node
 {
     Object data;
-
     Node next;
-
-    /**
-     * 构造方法
-     */
 
     public Node(Object data, Node n)
     {

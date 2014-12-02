@@ -16,18 +16,25 @@ public class SingleLinkedlist
     {
         head = new Node();
         Node p;
-        for (int i = a.length - 1; i >= 0; i--)
+  /*      for (int i = a.length - 1; i >= 0; i--)
         {// 倒着建立表，从最后一个元素向前建立单链表
-            //Add after head.
+         //Add after head.
             p = new Node(a[i], head.next);
             head.setNext(p);
 
+        }*/
+        
+        for (int i = a.length - 1; i >= 0; i--)
+        {
+            addAfter(head, a[i]);
         }
-
-        size = a.length;
-
     }
 
+    public void addAfter(Node n, Object x)
+    {
+        Node newNode = new Node(x, n.next);
+        n.next = newNode;
+    }
     /**
      * 清空操作
      */
