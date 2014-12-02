@@ -99,17 +99,17 @@ public class DoubleLinkedList
     /**
      * 寰楀埌绗琲涓妭鐐圭殑data鍊�
      * 
-     * @param i
+     * @param index
      * @return
      */
-    public Object get(int i)
+    public Object get(int index)
     {
         Dlnode p;
-        if (i <= 0 || i > size)
+        if (index <= 0 || index > size)
             return null;
         else
         {
-            p = index(i);
+            p = getNodeAtIndex(index);
             return p.getData();
 
         }
