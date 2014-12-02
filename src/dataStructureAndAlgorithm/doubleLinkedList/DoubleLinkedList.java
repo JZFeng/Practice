@@ -2,7 +2,7 @@ package dataStructureAndAlgorithm.doubleLinkedList;
 
 public class DoubleLinkedList
 {
-    Dlnode dlhead;// 链表表头
+    Dlnode dlhead;
     int size;
 
     public DoubleLinkedList()
@@ -11,10 +11,10 @@ public class DoubleLinkedList
         dlhead.prior = dlhead;
         dlhead.next = dlhead;
         size = 0;
-    }// 构造一个空表
+    }
 
     public DoubleLinkedList(Object[] a)
-    {// 用数组a构造一个双向循环链表
+    {
         dlhead = new Dlnode();
         dlhead.prior = dlhead;
         dlhead.next = dlhead;
@@ -53,7 +53,7 @@ public class DoubleLinkedList
     }
 
     /**
-     * 找到双向循环链表中第i个节点 首节点是第0个节点，然后 是第1个节点，依次类推
+     * 鎵惧埌鍙屽悜寰幆閾捐〃涓i涓妭鐐�棣栬妭鐐规槸绗�涓妭鐐癸紝鐒跺悗 鏄1涓妭鐐癸紝渚濇绫绘帹
      * 
      * @param index
      * @return
@@ -103,7 +103,7 @@ public class DoubleLinkedList
     }
 
     /**
-     * 得到第i个节点的data值
+     * 寰楀埌绗琲涓妭鐐圭殑data鍊�
      * 
      * @param i
      * @return
@@ -123,7 +123,7 @@ public class DoubleLinkedList
     }
 
     /**
-     * 计算双向循环链表的长度
+     * 璁＄畻鍙屽悜寰幆閾捐〃鐨勯暱搴�
      * 
      */
 
