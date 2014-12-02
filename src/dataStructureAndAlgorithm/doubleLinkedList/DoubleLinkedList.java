@@ -2,81 +2,98 @@ package dataStructureAndAlgorithm.doubleLinkedList;
 
 public class DoubleLinkedList
 {
-    Dlnode dlhead;// Á´±í±íÍ·
-
+    Dlnode dlhead;// é“¾è¡¨è¡¨å¤´
     int size;
+
     public DoubleLinkedList()
     {
         dlhead = new Dlnode();
         dlhead.prior = dlhead;
         dlhead.next = dlhead;
         size = 0;
-    }// ¹¹ÔìÒ»¸ö¿Õ±í
+    }// æ„é€ ä¸€ä¸ªç©ºè¡¨
 
     public DoubleLinkedList(Object[] a)
-    {// ÓÃÊı×éa¹¹ÔìÒ»¸öË«ÏòÑ­»·Á´±í
+    {// ç”¨æ•°ç»„aæ„é€ ä¸€ä¸ªåŒå‘å¾ªç¯é“¾è¡¨
         dlhead = new Dlnode();
         dlhead.prior = dlhead;
         dlhead.next = dlhead;
-        
+
         Dlnode p = null;
-        
-/*      for (int i = a.length - 1; i >= 0; i--)
+
+        for (int i = a.length - 1; i >= 0; i--)
         {
             p = new Dlnode(dlhead, a[i], dlhead.next);
             dlhead.next.setPrior(p);
             dlhead.setNext(p);
         }
-*/
-       for(int i = 0; i<=a.length-1; i++)
-        {
-            addBefore(dlhead,a[i]);
-        }
 
-       size = a.length;
+        /*
+         * for(int i = 0; i<=a.length-1; i++) { addBefore(dlhead,a[i]); }
+         */
+        size = a.length;
 
     }
-    
+
     public void addBefore(Dlnode p, Object x)
     {
-        Dlnode newNode = new Dlnode(p.prior,x,p);
+        Dlnode newNode = new Dlnode(p.prior, x, p);
         p.prior = newNode;
         newNode.prior.next = newNode;
-      
+        size++;
+
     }
-    
-    
 
     public void clear()
     {
         dlhead = new Dlnode();
         dlhead.prior = dlhead;
         dlhead.next = dlhead;
+        size = 0;
     }
 
     /**
-     * ÕÒµ½Ë«ÏòÑ­»·Á´±íÖĞµÚi¸ö½Úµã Ê×½ÚµãÊÇµÚ0¸ö½Úµã£¬È»ºó ÊÇµÚ1¸ö½Úµã£¬ÒÀ´ÎÀàÍÆ
+     * æ‰¾åˆ°åŒå‘å¾ªç¯é“¾è¡¨ä¸­ç¬¬iä¸ªèŠ‚ç‚¹ é¦–èŠ‚ç‚¹æ˜¯ç¬¬0ä¸ªèŠ‚ç‚¹ï¼Œç„¶å æ˜¯ç¬¬1ä¸ªèŠ‚ç‚¹ï¼Œä¾æ¬¡ç±»æ¨
      * 
-     * @param i
+     * @param index
      * @return
      */
-    public Dlnode index(int i)
+    // normal solution.
+    public Dlnode index(int index)
     {
-        Dlnode p;
-        int j;
-        if (i < 0 || i > size)
-            p = null;
-        else if (i == 0)
-            p = dlhead;
-        else
+
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+
+        Dlnode p = dlhead;
+
+        for (int i = 0; i <= index; i++)
         {
-            p = dlhead.next;
-            j = 1;
-            while (j < i && p != null)
+            p = p.next;
+        }
+
+        return p;
+    }
+
+    // better solution
+    public Dlnode getNodeAtIndex(int index)
+    {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+
+        Dlnode p = dlhead;
+
+        if (index < (size >> 1))
+            for (int i = 0; i <= index; i++)
             {
                 p = p.next;
-                j++;
+            }
 
+        else
+        {
+            for (int i = size; i > index; i--)
+            {
+                p = p.prior;
             }
 
         }
@@ -86,7 +103,7 @@ public class DoubleLinkedList
     }
 
     /**
-     * µÃµ½µÚi¸ö½ÚµãµÄdataÖµ
+     * å¾—åˆ°ç¬¬iä¸ªèŠ‚ç‚¹çš„dataå€¼
      * 
      * @param i
      * @return
@@ -106,7 +123,7 @@ public class DoubleLinkedList
     }
 
     /**
-     * ¼ÆËãË«ÏòÑ­»·Á´±íµÄ³¤¶È
+     * è®¡ç®—åŒå‘å¾ªç¯é“¾è¡¨çš„é•¿åº¦
      * 
      */
 
@@ -115,77 +132,100 @@ public class DoubleLinkedList
         return size;
     }
 
-    /**
-     * µÃµ½dataÓòÎªelµÄ½ÚµãË÷ÒıºÅ
-     * 
-     * @param el
-     * @return
-     */
-    public int loc(Object el)
+    // get the index of an object.
+    public int indexOf(Object o)
     {
-        Dlnode p;
-        int j = 1;
-        p = dlhead.next;
-        while (!p.data.equals(el) && p != dlhead)
-        {// Ë«ÏòÑ­»·Á´±í½áÊøµÄÌõ¼şÊÇÎ²½áµãµÄÏÂÒ»¸öÖ¸ÕëÊÇ·ñÖ¸ÏòÍ·½áµã
-            j++;
-            p = p.next;
+        int index = 0;
+        Dlnode p = dlhead.next;
 
+        if (o == null)
+        {
+            while (p != dlhead)
+            {
+                if (p.data == null)
+                    return index;
+                p = p.next;
+                index++;
+            }
+        }
+        else
+        {
+            while (p != dlhead)
+            {
+                if (p.data.equals(o))
+                    return index;
+                p = p.next;
+                index++;
+            }
         }
 
-        if (p != dlhead)
-            return j;
-        else
-            return 0;
-
+        return -1;
     }
 
-    /**
-     * µÚÒ»¸ö²ÎÊıÊÇ²åÈëµÄÎ»ÖÃ µÚ¶ş¸ö²ÎÊıÊÇ²åÈë½ÚµãµÄdataÖµ
-     * 
-     * @param loc
-     * @param el
-     * @return
-     */
-    public boolean insert(int loc, Object el)
+    public boolean contains(Object obj)
     {
-        if (loc < 1 && loc > size + 1)
+        if (indexOf(obj) == -1)
             return false;
-        Dlnode p = index(loc - 1);
-        Dlnode q = new Dlnode(p, el, p.next);
-        p.next.setPrior(q);
-        p.setNext(q);
-        size++;
-
         return true;
 
     }
 
     /**
-     * É¾³ı½áµã£¬Ìá¹©É¾³ı½ÚµãµÄË÷ÒıºÅ
+     * *
      * 
+     * @param position //the position you want to add
+     * @param obj //the element you want to add into the list
      */
-
-    public Object delete(int i)
+    public void add(int position, Object obj)
     {
-        if (size == 0 || i < 1 || i > size)
-            return null;
-        Dlnode p = index(i);
-        Object data = p.getData();
-        p.prior.setNext(p.next);
-        p.next.setPrior(p.prior);
-        size--;
-        return data;
+        if (position < 0 || position >= size)
+            throw new IndexOutOfBoundsException();
 
+        int index = 0;
+        Dlnode p = dlhead;
+        while (index <= position)
+        {
+            p = p.next;
+            index++;
+        }
+        addBefore(p, obj);
+        size++;
+    }
+
+    public void add(Object obj)
+    {
+        addBefore(dlhead, obj);
+    }
+
+    /*
+     remove the node at specified index
+     * */
+    public Object remove(int index)
+    {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+
+        Dlnode removedNode = null;
+        Dlnode p = dlhead;
+
+        for (int i = 0; i <= index; i++)
+        {
+            p = p.next;
+        }
+
+        removedNode = p;
+        p.prior.next = p.next;
+        p.next.prior = p.prior;
+
+        size--;
+        return removedNode;
     }
 
     public boolean empty()
     {
         return dlhead.next == dlhead;
     }
+    
+    
 
 }
-
-
-
-
