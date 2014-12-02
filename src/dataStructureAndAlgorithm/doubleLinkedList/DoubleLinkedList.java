@@ -52,12 +52,6 @@ public class DoubleLinkedList
         size = 0;
     }
 
-    /**
-     * 鎵惧埌鍙屽悜寰幆閾捐〃涓i涓妭鐐�棣栬妭鐐规槸绗�涓妭鐐癸紝鐒跺悗 鏄1涓妭鐐癸紝渚濇绫绘帹
-     * 
-     * @param index
-     * @return
-     */
     // normal solution.
     public Dlnode index(int index)
     {
@@ -122,10 +116,6 @@ public class DoubleLinkedList
 
     }
 
-    /**
-     * 璁＄畻鍙屽悜寰幆閾捐〃鐨勯暱搴�
-     * 
-     */
 
     public int len()
     {
