@@ -4,9 +4,7 @@ public class Dlnode
 {
 
     Object data;// 数据域
-
     Dlnode prior;// 指向前驱的指针域
-
     Dlnode next;// 指向后继的指针域
 
     public Dlnode(Dlnode prior, Object data, Dlnode next)

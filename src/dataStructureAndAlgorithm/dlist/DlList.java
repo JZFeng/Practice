@@ -20,20 +20,18 @@ public class DlList
         dlhead.next = dlhead;
         Dlnode p = null;
         
-/*        for (int i = a.length - 1; i >= 0; i--)
+        for (int i = a.length - 1; i >= 0; i--)
         {
             p = new Dlnode(dlhead, a[i], dlhead.next);
             dlhead.next.setPrior(p);
             dlhead.setNext(p);
-            
-            dlhead.next.prior = p;
-            dlhead.next = p;
-        }*/
+        }
 
-        for(int i = 0; i<=a.length-1; i++)
+/*        for(int i = 0; i<=a.length-1; i++)
         {
             addBefore(dlhead,a[i]);
         }
+        */
         size = a.length;
 
     }

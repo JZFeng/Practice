@@ -9,7 +9,6 @@ public class TestDllist
         DlList dl = new DlList(a);
 
         print(dl);
-
     }
 
     public static void print(DlList dl)
