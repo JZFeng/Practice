@@ -11,7 +11,6 @@ public class sortSingleLinkedList
     public static void main(String[] args)
     {
         // TODO Auto-generated method stub
-        
         Object[] a = {9,7,5,3};
         SingleLinkedlist linklist = new SingleLinkedlist(a);
         print(linklist);

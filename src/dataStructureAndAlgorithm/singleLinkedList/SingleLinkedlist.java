@@ -10,7 +10,8 @@ public class SingleLinkedlist
     {
         head = new Node();
         size = 0;
-    }// 有表头节点的单链表
+    }
+    // 有表头节点的单链表
 
     public SingleLinkedlist(Object[] a)
     {

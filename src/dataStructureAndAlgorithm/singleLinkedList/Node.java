@@ -14,7 +14,8 @@ public class Node
     public Node()
     {
         this(null, null);
-    }// 数据域为空，下一个指针为空
+    }
+    // 数据域为空，下一个指针为空
 
     public Object getData()
     {
