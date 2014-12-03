@@ -150,50 +150,8 @@ public class SingleLinkedlist
     
     public void sort()
     {
-        Node p, s;
-        p = head.next;// 取得单链表中的第一个节点
-        head.next = null;// 将原先的单链表置空
-        while (p != null)
-        {
-            s = p;
-            p = p.next;
-            sorts(s);
-
-        }
-
+        
     }
 
-    // 对单链表中的元素进行排序
-
-    public void sorts(Node s)
-    {
-        Node p, q;
-        Object data = s.getData();
-        if (head.next == null
-                || ((Integer) data).intValue() <= ((Integer) head.next.data).intValue())
-        {
-            // 插入的元素始终是最小的
-            s.next = head.next;
-            head.next = s;
-
-        }
-
-        else
-        {// 节点q始终指向p的前驱
-            p = head.next;
-            q = null;
-            while ((p != null)
-                    && (((Integer) p.data).intValue() < ((Integer) data).intValue()))
-            {
-                q = p;
-                p = p.next;
-            }
-
-            s.next = q.next;
-            q.next = s;
-
-        }
-
-    }
 
 }
