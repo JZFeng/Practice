@@ -1,10 +1,14 @@
 package dataStructureAndAlgorithm.doubleLinkedList;
 
-public class DoubleLinkedList
+import java.util.Iterator;
+
+public class DoubleLinkedList implements Iterable
 {
     Dlnode dlhead;
 
     int size;
+    
+    int modAmount = 0;
 
     public DoubleLinkedList()
     {
@@ -42,6 +46,7 @@ public class DoubleLinkedList
         p.prior = newNode;
         newNode.prior.next = newNode;
         size++;
+        modAmount++;
 
     }
 
@@ -50,6 +55,7 @@ public class DoubleLinkedList
         Dlnode newNode = new Dlnode(p, x, p.next);
         p.next.prior = newNode;
         p.next = newNode;
+        modAmount++;
     }
 
     public void clear()
@@ -184,12 +190,78 @@ public class DoubleLinkedList
         p.next.prior = p.prior;
 
         size--;
+        modAmount++;
         return removedNode;
     }
+    
+    /** remove a node */
+    public Object remove(Dlnode p)
+    {
+
+        Dlnode removedNode = p;
+
+        p.prior.next = p.next;
+        p.next.prior = p.prior;
+
+        size--;
+        modAmount++;
+        return removedNode;
+    }
+    
+    
 
     public boolean empty()
     {
         return dlhead.next == dlhead;
+    }
+
+    public Iterator iterator()
+    {
+        return new DoubleLinkedListIterator();
+    }
+    
+    //inner class
+    private class DoubleLinkedListIterator implements Iterator
+    {
+        private int iteratorModAmount = modAmount;
+        
+        Dlnode current = dlhead.next;
+        
+        boolean okToRemove = false;
+        
+
+        public boolean hasNext()
+        {
+            return (current != dlhead );
+        }
+
+ 
+        public Object next()
+        {
+            if(modAmount != iteratorModAmount)
+                throw new java.util.ConcurrentModificationException();
+            if(!hasNext())
+                throw new java.util.NoSuchElementException();
+            
+            Object p = current.getData();
+            current = current.next;
+            okToRemove = true;
+            return p;
+        }
+
+        public void remove()
+        {
+            if(modAmount != iteratorModAmount)
+                throw new java.util.ConcurrentModificationException();
+            if(!okToRemove)
+                throw new IllegalStateException();
+            
+            DoubleLinkedList.this.remove(current.prior);
+            okToRemove = false;
+            iteratorModAmount++;
+            
+        }
+        
     }
 
 }
