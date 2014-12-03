@@ -11,34 +11,21 @@ public class SingleLinkedlist
         head = new Node();
         size = 0;
     }
-    // 有表头节点的单链表
 
     public SingleLinkedlist(Object[] a)
     {
         head = new Node();
-        Node p;
-  /*      for (int i = a.length - 1; i >= 0; i--)
-        {// 倒着建立表，从最后一个元素向前建立单链表
-         //Add after head.
-            p = new Node(a[i], head.next);
-            head.setNext(p);
-
-        }*/
-        
+        Node p = null;
         for (int i = a.length - 1; i >= 0; i--)
         {
-            addAfter(head, a[i]);
+            p = new Node(a[i], head.next);
+            head.next = p;
+
         }
+
+        size = a.length;
     }
 
-    public void addAfter(Node n, Object x)
-    {
-        Node newNode = new Node(x, n.next);
-        n.next = newNode;
-    }
-    /**
-     * 清空操作
-     */
 
     public void clear()
     {
@@ -46,63 +33,23 @@ public class SingleLinkedlist
         size = 0;
     }
 
-    /**
-     * 求链表中第i号节点
-     * 
-     */
-
-    public Node index(int i)
+    public Node nodeAtIndex(int index)
     {
-        Node p = null;
-        int j;
-        if (i < 0 || i > size)
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+
+        Node p = head.next;
+
+        for (int i = 0; i < index; i++)
         {
-            p = null;
-        }
-        else if (i == 0)
-            p = head;
-        else
-        {
-            j = 1;
-            p = head.next;
-
-            while (p != null && j < i)
-            {
-
-                p = p.next;
-                j++;
-            }
-
+            p = p.next;
         }
 
         return p;
 
     }
 
-    /***
-     * 返回第i个节点的数据域
-     * 
-     * @param i
-     * @return
-     */
-    public Object get(int i)
-    {
-
-        if (i < 1 || i > size)
-            return null;
-
-        Node p = index(i);
-
-        return p.getData();
-
-    }
-
-    /**
-     * 返回单链表的长度
-     * 
-     * @return
-     */
-    public int length()
+    public int getSize()
     {
         return size;
     }
@@ -113,72 +60,94 @@ public class SingleLinkedlist
      * @param el
      * @return
      */
-    public int loc(Object el)
+    public int indexOf(Object obj)
     {
-        Node p;
-        int j = 1;
-        p = head.next;
-
-        while (p != null)
+        int index = 0;
+        Node p = head.next;
+        if(obj == null)
         {
-            if (!p.data.equals(el))
+            while(p != null)
             {
-
+                if (p.getData() == null)
+                    return index;
                 p = p.next;
-                j++;
-
+                index++;
             }
+        }
+        else
+        {
+            while(p != null)
+            {
+                if (obj.equals(p.getData()))
+                    return index;
+                p = p.next;
+                index++;
+            }
+        }
+        
+        
+        return -1;
+    }
 
+    public void add(int index, Object obj)
+    {
+        if (index < 0 || index > size)
+            throw new IndexOutOfBoundsException();
+        
+        Node p = head.next;
+        for(int i = 0 ; i < index -1; i++)
+        {
+            p = p.next;
+        }
+        
+        Node newNode = new Node(obj, p.next);
+        p.next = newNode;
+        
+        size++;
+    }
+
+    
+    public void add(Object obj)
+    {
+        add(size, obj);
+        
+    }
+
+    public Object remove(int index)
+    {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+
+        Node p = head;
+        for (int i = 0; i < index - 1; i++)
+        {
+            p = p.next;
         }
 
-        if (p != null)
-            return j;
-        else
-            return 0;
+        Node removedNode = p.next;
+        p.next = p.next.next;
+
+        return removedNode;
 
     }
 
-    /**
-     * 单链表的插入 在位置loc位置之前插入节点数据域为el的节点
-     */
 
-    public boolean insert(int loc, Object el)
-    {
-        if (loc < 1 || loc > size + 1)
-            return false;
-        Node p = index(loc - 1);// 找到loc-1处的节点进行插入
-        p.setNext(new Node(el, p.next));
-        size++;
-        return true;
-
-    }
-
-    /**
-     * 删除操作 删除节点号为i的节点 首结点的节点号为0,依次类推 首结点不能删除
-     */
-
-    public Object delete(int i)
-    {
-        if (i < 1 || i > size || size == 0)
-            return false;
-        Node p = index(i - 1);
-        Object el = p.next.getData();
-        p.setNext(p.next.next);
-        size--;
-        return el;
-
-    }
-
-    /**
-     * 判断是单链表是否为空
-     * 
-     * @return
-     */
     public boolean empty()
     {
         return head.next == null;
     }
 
+    
+    public boolean contains(Object obj)
+    {
+        if(indexOf(obj) == -1)
+            return false;
+        
+        return true;
+        
+    }
+    
+    
     public void sort()
     {
         Node p, s;
