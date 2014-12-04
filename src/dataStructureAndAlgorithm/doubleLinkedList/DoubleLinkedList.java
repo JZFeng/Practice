@@ -13,7 +13,7 @@ public class DoubleLinkedList implements Iterable
     public DoubleLinkedList()
     {
         dlhead = new Dlnode();
-        dlhead.prior = dlhead;
+        dlhead.prev = dlhead;
         dlhead.next = dlhead;
         size = 0;
     }
@@ -21,7 +21,7 @@ public class DoubleLinkedList implements Iterable
     public DoubleLinkedList(Object[] a)
     {
         dlhead = new Dlnode();
-        dlhead.prior = dlhead;
+        dlhead.prev = dlhead;
         dlhead.next = dlhead;
 
         Dlnode p = null;
@@ -42,9 +42,9 @@ public class DoubleLinkedList implements Iterable
 
     public void addBefore(Dlnode p, Object x)
     {
-        Dlnode newNode = new Dlnode(p.prior, x, p);
-        p.prior = newNode;
-        newNode.prior.next = newNode;
+        Dlnode newNode = new Dlnode(p.prev, x, p);
+        p.prev = newNode;
+        newNode.prev.next = newNode;
         size++;
         modAmount++;
 
@@ -53,7 +53,7 @@ public class DoubleLinkedList implements Iterable
     public void addAfter(Dlnode p, Object x)
     {
         Dlnode newNode = new Dlnode(p, x, p.next);
-        p.next.prior = newNode;
+        p.next.prev = newNode;
         p.next = newNode;
         modAmount++;
     }
@@ -61,7 +61,7 @@ public class DoubleLinkedList implements Iterable
     public void clear()
     {
         dlhead = new Dlnode();
-        dlhead.prior = dlhead;
+        dlhead.prev = dlhead;
         dlhead.next = dlhead;
         size = 0;
     }
@@ -90,7 +90,7 @@ public class DoubleLinkedList implements Iterable
         {
             for (int i = size; i > index; i--)
             {
-                p = p.prior;
+                p = p.prev;
             }
 
         }
@@ -186,8 +186,8 @@ public class DoubleLinkedList implements Iterable
         }
 
         removedNode = p;
-        p.prior.next = p.next;
-        p.next.prior = p.prior;
+        p.prev.next = p.next;
+        p.next.prev = p.prev;
 
         size--;
         modAmount++;
@@ -200,8 +200,8 @@ public class DoubleLinkedList implements Iterable
 
         Dlnode removedNode = p;
 
-        p.prior.next = p.next;
-        p.next.prior = p.prior;
+        p.prev.next = p.next;
+        p.next.prev = p.prev;
 
         size--;
         modAmount++;
@@ -256,7 +256,7 @@ public class DoubleLinkedList implements Iterable
             if(!okToRemove)
                 throw new IllegalStateException();
             
-            DoubleLinkedList.this.remove(current.prior);
+            DoubleLinkedList.this.remove(current.prev);
             okToRemove = false;
             iteratorModAmount++;
             

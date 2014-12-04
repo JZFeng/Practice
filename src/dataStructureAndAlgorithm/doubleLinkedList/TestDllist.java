@@ -1,5 +1,7 @@
 package dataStructureAndAlgorithm.doubleLinkedList;
 
+import java.util.Iterator;
+
 public class TestDllist
 {
     public static void main(String[] args)
@@ -7,14 +9,15 @@ public class TestDllist
         Object[] a =
         { 9, 7, 5, 3, 1 };
         DoubleLinkedList dl = new DoubleLinkedList(a);
-        dl.remove(3);
-        print(dl);
-        System.out.println("Size of the list is: " + dl.size);
+        
+        Iterator itr = dl.iterator();
+        while(itr.hasNext())
+        {
+            if(itr.next().equals(new Integer(3)))
+                itr.remove();
+        }
 
-        // System.out.println(dl.contains(11));
-        // System.out.println(dl.indexOf(0));
-        // System.out.println(dl.index(3).data);
-        // System.out.println(dl.getNodeAtIndex(3).data);
+        print(dl);
 
     }
 
@@ -26,6 +29,12 @@ public class TestDllist
             System.out.println(p.data);
             p = p.next;
         }
+        
+/*        for (Object object : dl)
+        {
+            System.out.println(object);
+        }*/
+        
 
     }
 }
