@@ -162,7 +162,7 @@ public class BinarySearchTree
             t.right = remove(t.element, t.right);
         }
         else
-            t = (t.left != null) ? t.left : t.right;
+            t = ((t.left != null) ? t.left : t.right);
         return t;
     }
 
