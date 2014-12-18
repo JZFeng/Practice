@@ -12,6 +12,13 @@ import dataStructureAndAlgorithm.tree.binaryTree.MyInteger;
 public class AVLTree<T extends Comparable<T>>
 {
     private AVLTreeNode<T> mRoot; // 根结点
+    
+    
+    public AVLTreeNode<T> getRoot()
+    {
+        return this.mRoot;
+    }
+   
 
     // AVL树的节点(内部类)
     class AVLTreeNode<T extends Comparable<T>>
@@ -47,7 +54,7 @@ public class AVLTree<T extends Comparable<T>>
         if (tree != null)
             return tree.height;
 
-        return 0;
+        return -1;
     }
 
     public int height()
@@ -294,7 +301,9 @@ public class AVLTree<T extends Comparable<T>>
             if (cmp < 0)
             { // 应该将key插入到'tree的左子树'的情况
                 tree.left = insert(tree.left, key);
-                // 插入节点后，若AVL树失去平衡，则进行相应的调节。
+                // 插入节点后，若AVL树失去平衡，则进行相应的调节。 
+               // recursion, Tree is always changing 
+              
                 if (height(tree.left) - height(tree.right) == 2)
                 {
                     if (key.compareTo(tree.left.key) < 0)
@@ -321,6 +330,7 @@ public class AVLTree<T extends Comparable<T>>
             }
         }
 
+        //update the height info of the tree
         tree.height = max(height(tree.left), height(tree.right)) + 1;
 
         return tree;
@@ -346,6 +356,7 @@ public class AVLTree<T extends Comparable<T>>
         if (cmp < 0)
         { // 待删除的节点在'tree的左子树'中
             tree.left = remove(tree.left, z);
+            
             // 删除节点后，若AVL树失去平衡，则进行相应的调节。
             if (height(tree.right) - height(tree.left) == 2)
             {
@@ -370,8 +381,8 @@ public class AVLTree<T extends Comparable<T>>
             }
         }
         else
-        { // tree是对应要删除的节点。
-          // tree的左右孩子都非空
+        { // tree is the node that will be removed.
+          // tree's leftChild != null && rightChild != null
             if ((tree.left != null) && (tree.right != null))
             {
                 if (height(tree.left) > height(tree.right))
@@ -394,7 +405,7 @@ public class AVLTree<T extends Comparable<T>>
                     // (03)删除该最小节点。
                     // 这类似于用'tree的右子树中最小节点'做'tree'的替身；
                     // 采用这种方式的好处是：删除'tree的右子树中最小节点'之后，AVL树仍然是平衡的。
-                    AVLTreeNode<T> min = maximum(tree.right);
+                    AVLTreeNode<T> min = minimum(tree.right);
                     tree.key = min.key;
                     tree.right = remove(tree.right, min);
                 }
@@ -430,7 +441,8 @@ public class AVLTree<T extends Comparable<T>>
             destroy(tree.left);
         if (tree.right != null)
             destroy(tree.right);
-
+        
+        //this is an important step.
         tree = null;
     }
 
@@ -442,14 +454,15 @@ public class AVLTree<T extends Comparable<T>>
     /*
      * 打印'二叉查找树'
      * 
-     * key -- 节点的键值 direction -- 0，表示该节点是根节点; -1，表示该节点是它的父结点的左孩子; 1，表示该节点是它的父结点的右孩子。
+     * key -- 节点的键值 
+     * direction -- 0，表示该节点是根节点; -1，表示该节点是它的父结点的左孩子; 1，表示该节点是它的父结点的右孩子。
      */
     private void print(AVLTreeNode<T> tree, T key, int direction)
     {
         if (tree != null)
         {
             if (direction == 0) // tree是根节点
-                System.out.printf(tree.key.toString()+ key);
+                System.out.printf(tree.key.toString());
             else //tree是分支节点
                 System.out.println( tree.key.toString() +  key + (direction==1 ?"right" : "left"));
 
