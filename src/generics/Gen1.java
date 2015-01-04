@@ -2,9 +2,10 @@ package generics;
 
 public class Gen1
 {
-    public <T extends String> void f(T x)
+    public <T extends String> T f(T x)
     {
         System.out.println(x.getClass().getName());
+        return x;
     }
 
     public static void main(String[] args)
