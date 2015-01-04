@@ -6,7 +6,8 @@ public class AVLTreeTest
 {
 
     private static int arr[] = 
-        {3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9};
+        {10,40,20,30};
+//        {3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9};
 
 
     public static void main(String[] args)
@@ -18,15 +19,22 @@ public class AVLTreeTest
         for (i = 0; i < arr.length; i++)
         {
             System.out.print( arr[i]+" ");
-            tree.insert(arr[i]);
+            tree.add(arr[i]);
         }
 
-        System.out.println();
-        System.out.print("== 中序遍历: ");
-        tree.inOrder();
+        
+        System.out.println("== 层次遍历1: ");
+        tree.levelOrder1();
         System.out.println();
 
+        System.out.println("== 层次遍历2: ");
+        tree.levelOrder2();
+        System.out.println();
         
+        System.out.println("== 层次遍历3: ");
+        tree.levelOrder3();
+        System.out.println();
+ /*       
         System.out.println("== 树的高度: " + tree.height());
         System.out.println("== 最小值: " + tree.minimum());
         System.out.println("== 最大值: " + tree.maximum());
@@ -34,7 +42,7 @@ public class AVLTreeTest
         System.out.println("当前树的根节点是: "+ tree.getRoot().key);
         System.out.println("");        
         
-        i = 7;
+        i = 8;
         System.out.println("== 删除节点:" + i);
         tree.remove(i);
 
@@ -42,11 +50,11 @@ public class AVLTreeTest
         System.out.println("== 新树的最小值: " + tree.minimum());
         System.out.println("== 新树的最大值: " + tree.maximum());
         System.out.println("== 新树的详细信息: ");
-        tree.inOrder();
+        tree.levelOrder2();
         System.out.println("\n新树的根节点是: "+ tree.getRoot().key);
 
         // 销毁二叉树
-        tree.destroy();
+        tree.destroy();*/
     }
 
 }

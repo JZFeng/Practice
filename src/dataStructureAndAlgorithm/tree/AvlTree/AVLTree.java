@@ -1,9 +1,11 @@
 package dataStructureAndAlgorithm.tree.AvlTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
-import dataStructureAndAlgorithm.tree.binaryTree.MyInteger;
+
 
 /**
  * Java 语言: AVL树
@@ -15,13 +17,11 @@ import dataStructureAndAlgorithm.tree.binaryTree.MyInteger;
 public class AVLTree<T extends Comparable<T>>
 {
     private AVLTreeNode<T> mRoot; // 根结点
-    
-    
+
     public AVLTreeNode<T> getRoot()
     {
         return this.mRoot;
     }
-   
 
     // AVL树的节点(内部类)
     class AVLTreeNode<T extends Comparable<T>>
@@ -41,6 +41,16 @@ public class AVLTree<T extends Comparable<T>>
             this.right = right;
             this.height = 0;
         }
+        
+        
+        public AVLTreeNode()
+        {
+            this.key = null;
+            this.left = null;
+            this.right = null;
+            this.height = -1;
+        }
+
     }
 
     // 构造函数
@@ -285,7 +295,7 @@ public class AVLTree<T extends Comparable<T>>
      * 
      * 参数说明： tree AVL树的根结点 key 插入的结点的键值 返回值： 根节点
      */
-    private AVLTreeNode<T> insert(AVLTreeNode<T> tree, T key)
+    private AVLTreeNode<T> add(AVLTreeNode<T> tree, T key)
     {
         if (tree == null)
         {
@@ -303,10 +313,10 @@ public class AVLTree<T extends Comparable<T>>
 
             if (cmp < 0)
             { // 应该将key插入到'tree的左子树'的情况
-                tree.left = insert(tree.left, key);
-                // 插入节点后，若AVL树失去平衡，则进行相应的调节。 
-               // recursion, Tree is always changing 
-              
+                tree.left = add(tree.left, key);
+                // 插入节点后，若AVL树失去平衡，则进行相应的调节。
+                // recursion, Tree is always changing
+
                 if (height(tree.left) - height(tree.right) == 2)
                 {
                     if (key.compareTo(tree.left.key) < 0)
@@ -317,7 +327,7 @@ public class AVLTree<T extends Comparable<T>>
             }
             else if (cmp > 0)
             { // 应该将key插入到'tree的右子树'的情况
-                tree.right = insert(tree.right, key);
+                tree.right = add(tree.right, key);
                 // 插入节点后，若AVL树失去平衡，则进行相应的调节。
                 if (height(tree.right) - height(tree.left) == 2)
                 {
@@ -333,15 +343,15 @@ public class AVLTree<T extends Comparable<T>>
             }
         }
 
-        //update the height info of the tree
+        // update the height info of the tree
         tree.height = max(height(tree.left), height(tree.right)) + 1;
 
         return tree;
     }
 
-    public void insert(T key)
+    public void add(T key)
     {
-        mRoot = insert(mRoot, key);
+        mRoot = add(mRoot, key);
     }
 
     /*
@@ -359,7 +369,7 @@ public class AVLTree<T extends Comparable<T>>
         if (cmp < 0)
         { // 待删除的节点在'tree的左子树'中
             tree.left = remove(tree.left, z);
-            
+
             // 删除节点后，若AVL树失去平衡，则进行相应的调节。
             if (height(tree.right) - height(tree.left) == 2)
             {
@@ -444,8 +454,8 @@ public class AVLTree<T extends Comparable<T>>
             destroy(tree.left);
         if (tree.right != null)
             destroy(tree.right);
-        
-        //this is an important step.
+
+        // this is an important step.
         tree = null;
     }
 
@@ -457,8 +467,7 @@ public class AVLTree<T extends Comparable<T>>
     /*
      * 打印'二叉查找树'
      * 
-     * key -- 节点的键值 
-     * direction -- 0，表示该节点是根节点; -1，表示该节点是它的父结点的左孩子; 1，表示该节点是它的父结点的右孩子。
+     * key -- 节点的键值 direction -- 0，表示该节点是根节点; -1，表示该节点是它的父结点的左孩子; 1，表示该节点是它的父结点的右孩子。
      */
     private void print(AVLTreeNode<T> tree, T key, int direction)
     {
@@ -466,8 +475,10 @@ public class AVLTree<T extends Comparable<T>>
         {
             if (direction == 0) // tree是根节点
                 System.out.printf(tree.key.toString());
-            else //tree是分支节点
-                System.out.println( tree.key.toString() +  key + (direction==1 ?"right" : "left"));
+            else
+                // tree是分支节点
+                System.out.println(tree.key.toString() + key
+                        + (direction == 1 ? "right" : "left"));
 
             print(tree.left, tree.key, -1);
 
@@ -481,8 +492,111 @@ public class AVLTree<T extends Comparable<T>>
         if (mRoot != null)
             print(mRoot, mRoot.key, 0);
     }
-    
-    
 
+    public void levelOrder1()
+    {
+        Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>();
+        queue.offer(mRoot);
+
+        AVLTreeNode<T> prevNode = mRoot;
+        
+        while (!queue.isEmpty())
+        {
+            AVLTreeNode nextNode = queue.poll();
+            if(prevNode.height > nextNode.height)
+            {
+                System.out.println();
+            }
+            
+//            System.out.print(nextNode.key+" ");
+            System.out.print(nextNode.key+" Height:"+nextNode.height+" ");
+            
+            if (nextNode.left != null)
+                queue.offer(nextNode.left);
+            if (nextNode.right != null)
+                queue.offer(nextNode.right);
+            
+            prevNode = nextNode; //这句话一般放在最后。
+
+        }
+
+    }
+
+    
+    public void levelOrder2()
+    {
+        Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>();
+        queue.offer(mRoot);
+        
+        int nodesInCurrentLevel = 1;
+        int nodesInNextLevel = 0;
+
+        
+        while (!queue.isEmpty())
+        {
+            AVLTreeNode currNode = queue.poll();
+            nodesInCurrentLevel--;
+            
+            System.out.print(currNode.key+" Height:"+currNode.height+" ");
+            
+            if (currNode.left != null)
+            {
+                queue.offer(currNode.left);
+                nodesInNextLevel++;
+            }
+            
+            if (currNode.right != null)
+            {
+                queue.offer(currNode.right);
+                nodesInNextLevel++;
+            }
+            
+            if(nodesInCurrentLevel == 0)
+            {
+                System.out.println();
+                nodesInCurrentLevel = nodesInNextLevel;
+                nodesInNextLevel = 0;
+            }
+        }
+
+    }
+    
+    
+    public void levelOrder3()
+    {
+        Queue<AVLTreeNode> currentLevel = new LinkedList<AVLTreeNode>();
+        Queue<AVLTreeNode> nextLevel = new LinkedList<AVLTreeNode>();
+        Queue<AVLTreeNode> tmp = new LinkedList<AVLTreeNode>();
+
+        currentLevel.offer(mRoot);
+
+        while (!currentLevel.isEmpty())
+        {
+            AVLTreeNode currNode = currentLevel.poll();
+//            System.out.print(currNode.key + " ");
+            System.out.print(currNode.key+" Height:"+currNode.height+" ");
+            if (currNode.left != null)
+                nextLevel.offer(currNode.left);
+            if (currNode.right != null)
+                nextLevel.offer(currNode.right);
+
+            /*
+             * The first queue stores the current level’s nodes. The second queue stores the next level’s nodes (the
+             * current level nodes’ children). When the first queue is emptied, we know that it must have reached the
+             * end of the current level therefore we print a newline. Then, we switch the emptied first queue with the
+             * second queue (which is populated with the next level’s nodes). Then we repeat the process over again.
+             */
+            if (currentLevel.isEmpty())
+            {
+                System.out.println();
+                tmp = currentLevel;
+                currentLevel = nextLevel;
+                nextLevel = tmp;
+
+            }
+
+        }
+
+    }
 
 }
