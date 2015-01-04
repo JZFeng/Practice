@@ -1,5 +1,7 @@
 package dataStructureAndAlgorithm.tree.AvlTree;
 
+import java.util.logging.Level;
+
 public class AVLTreeTest
 {
 
@@ -35,8 +37,6 @@ public class AVLTreeTest
         i = 7;
         System.out.println("== 删除节点:" + i);
         tree.remove(i);
-        tree.remove(12);
-        tree.remove(8);
 
         System.out.println("== 新树的高度:" + tree.height());
         System.out.println("== 新树的最小值: " + tree.minimum());
