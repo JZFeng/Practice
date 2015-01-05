@@ -1,8 +1,6 @@
 package dataStructureAndAlgorithm.tree.AvlTree;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 
@@ -43,13 +41,6 @@ public class AVLTree<T extends Comparable<T>>
         }
         
         
-        public AVLTreeNode()
-        {
-            this.key = null;
-            this.left = null;
-            this.right = null;
-            this.height = -1;
-        }
 
     }
 
