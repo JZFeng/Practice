@@ -498,7 +498,27 @@ public class AVLTree<T extends Comparable<T>>
      * 
      * }
      */
+    
+    public void levelOrder()
+    {
+        Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>();
+        queue.offer(mRoot);
 
+        while (!queue.isEmpty())
+        {
+            AVLTreeNode currNode = queue.poll();
+            System.out.print(currNode.key + " ");
+
+            if (currNode.left != null)
+                queue.offer(currNode.left);
+            if (currNode.right != null)
+                queue.offer(currNode.right);
+        }
+    }
+
+    
+    
+    
     public void levelOrder1()
     {
         Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>();
@@ -513,7 +533,6 @@ public class AVLTree<T extends Comparable<T>>
             nodesInCurrentLevel--;
 
             System.out.print(currNode.key + " ");
-            // System.out.print(currNode.key+" Height:"+currNode.height+" ");
 
             if (currNode.left != null)
             {

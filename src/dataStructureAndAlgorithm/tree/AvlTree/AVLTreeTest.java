@@ -27,6 +27,10 @@ public class AVLTreeTest
         tree.inOrder();
         System.out.println();
         
+        System.out.println("== 层次遍历: ");
+        tree.levelOrder();
+        System.out.println();
+        
 
         System.out.println("== 层次遍历1: ");
         tree.levelOrder1();
