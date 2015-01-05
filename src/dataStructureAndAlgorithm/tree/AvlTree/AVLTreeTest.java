@@ -23,19 +23,19 @@ public class AVLTreeTest
             tree.add(arr[i]);
         }
 
+        System.out.println("\n中序遍历: ");
+        tree.inOrder();
+        System.out.println();
         
-        System.out.println("\n== 层次遍历1: ");
+
+        System.out.println("== 层次遍历1: ");
         tree.levelOrder1();
         System.out.println();
-
+        
         System.out.println("== 层次遍历2: ");
         tree.levelOrder2();
         System.out.println();
-        
-        System.out.println("== 层次遍历3: ");
-        tree.levelOrder3();
-        System.out.println();
- /*       
+      
         System.out.println("== 树的高度: " + tree.height());
         System.out.println("== 最小值: " + tree.minimum());
         System.out.println("== 最大值: " + tree.maximum());
@@ -43,7 +43,7 @@ public class AVLTreeTest
         System.out.println("当前树的根节点是: "+ tree.getRoot().key);
         System.out.println("");        
         
-        i = 8;
+        i = 7;
         System.out.println("== 删除节点:" + i);
         tree.remove(i);
 
@@ -51,11 +51,11 @@ public class AVLTreeTest
         System.out.println("== 新树的最小值: " + tree.minimum());
         System.out.println("== 新树的最大值: " + tree.maximum());
         System.out.println("== 新树的详细信息: ");
-        tree.levelOrder2();
+        tree.levelOrder1();
         System.out.println("\n新树的根节点是: "+ tree.getRoot().key);
 
         // 销毁二叉树
-        tree.destroy();*/
+        tree.destroy();
     }
 
 }

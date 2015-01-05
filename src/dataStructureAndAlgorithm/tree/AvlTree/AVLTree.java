@@ -3,8 +3,6 @@ package dataStructureAndAlgorithm.tree.AvlTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
-
 /**
  * Java 语言: AVL树
  * 
@@ -39,8 +37,6 @@ public class AVLTree<T extends Comparable<T>>
             this.right = right;
             this.height = 0;
         }
-        
-        
 
     }
 
@@ -484,65 +480,54 @@ public class AVLTree<T extends Comparable<T>>
             print(mRoot, mRoot.key, 0);
     }
 
+    /*
+     * public void levelOrder() { Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>(); queue.offer(mRoot);
+     * 
+     * AVLTreeNode<T> prevNode = mRoot;
+     * 
+     * while (!queue.isEmpty()) { AVLTreeNode nextNode = queue.poll(); if(prevNode.height > nextNode.height) {
+     * System.out.println(); }
+     * 
+     * // System.out.print(nextNode.key+" "); System.out.print(nextNode.key+" Height:"+nextNode.height+" ");
+     * 
+     * if (nextNode.left != null) queue.offer(nextNode.left); if (nextNode.right != null) queue.offer(nextNode.right);
+     * 
+     * prevNode = nextNode; //这句话一般放在最后。
+     * 
+     * }
+     * 
+     * }
+     */
+
     public void levelOrder1()
     {
         Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>();
         queue.offer(mRoot);
 
-        AVLTreeNode<T> prevNode = mRoot;
-        
-        while (!queue.isEmpty())
-        {
-            AVLTreeNode nextNode = queue.poll();
-            if(prevNode.height > nextNode.height)
-            {
-                System.out.println();
-            }
-            
-//            System.out.print(nextNode.key+" ");
-            System.out.print(nextNode.key+" Height:"+nextNode.height+" ");
-            
-            if (nextNode.left != null)
-                queue.offer(nextNode.left);
-            if (nextNode.right != null)
-                queue.offer(nextNode.right);
-            
-            prevNode = nextNode; //这句话一般放在最后。
-
-        }
-
-    }
-
-    
-    public void levelOrder2()
-    {
-        Queue<AVLTreeNode> queue = new LinkedList<AVLTreeNode>();
-        queue.offer(mRoot);
-        
         int nodesInCurrentLevel = 1;
         int nodesInNextLevel = 0;
 
-        
         while (!queue.isEmpty())
         {
             AVLTreeNode currNode = queue.poll();
             nodesInCurrentLevel--;
-            
-            System.out.print(currNode.key+" Height:"+currNode.height+" ");
-            
+
+            System.out.print(currNode.key + " ");
+            // System.out.print(currNode.key+" Height:"+currNode.height+" ");
+
             if (currNode.left != null)
             {
                 queue.offer(currNode.left);
                 nodesInNextLevel++;
             }
-            
+
             if (currNode.right != null)
             {
                 queue.offer(currNode.right);
                 nodesInNextLevel++;
             }
-            
-            if(nodesInCurrentLevel == 0)
+
+            if (nodesInCurrentLevel == 0)
             {
                 System.out.println();
                 nodesInCurrentLevel = nodesInNextLevel;
@@ -551,9 +536,8 @@ public class AVLTree<T extends Comparable<T>>
         }
 
     }
-    
-    
-    public void levelOrder3()
+
+    public void levelOrder2()
     {
         Queue<AVLTreeNode> currentLevel = new LinkedList<AVLTreeNode>();
         Queue<AVLTreeNode> nextLevel = new LinkedList<AVLTreeNode>();
@@ -564,8 +548,8 @@ public class AVLTree<T extends Comparable<T>>
         while (!currentLevel.isEmpty())
         {
             AVLTreeNode currNode = currentLevel.poll();
-//            System.out.print(currNode.key + " ");
-            System.out.print(currNode.key+" Height:"+currNode.height+" ");
+            System.out.print(currNode.key + " ");
+            // System.out.print(currNode.key+" Height:"+currNode.height+" ");
             if (currNode.left != null)
                 nextLevel.offer(currNode.left);
             if (currNode.right != null)
