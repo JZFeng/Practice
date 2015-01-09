@@ -6,8 +6,7 @@ public class stringHash
     public static void main(String[] args)
     {
         String s = "Hello";
-        System.out.println(s.hashCode());
-        System.out.println(hashCode(s));
+        System.out.println(isPrime(11));
         
 
     }
@@ -27,8 +26,26 @@ public class stringHash
         
         return h;
         
+    }
+    
+    public static boolean isPrime(int n)
+    {
+        if(n<2)
+            return false;
         
+        if(n == 2 || n == 3)
+            return true;
         
+        if(n%2 == 0)
+            return false;
+        
+        for(int i = 3; i*i<= n ; i=i+2)
+        {
+            if(n%i == 0)
+                    return false;
+        }
+        
+        return true;
     }
 
 }
