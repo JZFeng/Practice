@@ -1,5 +1,7 @@
 package dataStructureAndAlgorithm.tree.binaryTree;
 
+import dataStructureAndAlgorithm.hashing.Hashable;
+
 
 /**
  * Wrapper class for use with generic data structures.
