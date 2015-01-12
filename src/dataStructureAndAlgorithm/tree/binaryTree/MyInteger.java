@@ -1,6 +1,6 @@
 package dataStructureAndAlgorithm.tree.binaryTree;
 
-import dataStructureAndAlgorithm.hashing.Hashable;
+import dataStructureAndAlgorithm.hashing.SeparateChaining.Hashable;
 
 
 /**
