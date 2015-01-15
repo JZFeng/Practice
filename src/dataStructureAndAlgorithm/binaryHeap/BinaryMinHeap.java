@@ -1,4 +1,4 @@
-package com.telenav.jz;
+package dataStructureAndAlgorithm.binaryHeap;
 
 public class BinaryMinHeap {
 	private int[] data;
