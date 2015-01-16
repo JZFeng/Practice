@@ -12,7 +12,9 @@ public class BinaryMinHeap
         heapSize = 0;
     }
 
-    
+/*
+ * add some comments
+ * ***/    
     
     public BinaryMinHeap(int[] items)
     {
