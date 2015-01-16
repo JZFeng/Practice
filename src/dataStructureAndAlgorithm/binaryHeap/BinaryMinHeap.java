@@ -12,7 +12,6 @@ public class BinaryMinHeap
         heapSize = 0;
     }
 
-    //System.out.println("Hello World");
     
     
     public BinaryMinHeap(int[] items)
