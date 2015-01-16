@@ -21,7 +21,6 @@ package dataStructureAndAlgorithm.binaryHeap;
  */
 public class BinaryHeap
 {
-
     private static final int DEFAULT_CAPACITY = 100;
 
     private int currentSize; // Number of elements in heap
