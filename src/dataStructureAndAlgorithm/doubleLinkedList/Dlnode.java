@@ -3,13 +3,15 @@ package dataStructureAndAlgorithm.doubleLinkedList;
 public class Dlnode
 {
 
-    Dlnode prior;// 指向前驱的指针域
+    Dlnode prev;// 指向前驱的指针域
     Object data;// 数据域
     Dlnode next;// 指向后继的指针域
 
+    
+    
     public Dlnode(Dlnode prior, Object data, Dlnode next)
     {
-        this.prior = prior;
+        this.prev = prior;
         this.data = data;
         this.next = next;
     }
@@ -41,12 +43,12 @@ public class Dlnode
 
     public Dlnode getPrior()
     {
-        return prior;
+        return prev;
     }
 
     public void setPrior(Dlnode prior)
     {
-        this.prior = prior;
+        this.prev = prior;
     }
 }
 

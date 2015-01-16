@@ -12,6 +12,35 @@ public class BinaryMinHeap
         heapSize = 0;
     }
 
+    public BinaryMinHeap(int[] items)
+    {
+        if (items == null || items.length == 0)
+        {
+            throw new IllegalArgumentException();
+        }
+        else
+        {
+            heapSize = items.length;
+            data = new int[heapSize];
+
+            for (int i = 0; i < heapSize; i++)
+            {
+                data[i] = items[i];
+            }
+        }
+
+        buildHeap();
+    }
+
+    public void buildHeap()
+    {
+        for (int i = heapSize / 2 - 1; i >= 0; i--)
+        {
+            siftDown(i);
+        }
+
+    }
+
     public int getMinimum()
     {
         if (isEmpty())
@@ -47,30 +76,6 @@ public class BinaryMinHeap
             super(message);
         }
     }
-    
-    
-    /*non-recursion implement. Plus no swap.**/
-    private void insert1(int value)
-    {
-        if (heapSize == data.length)
-            throw new HeapException("Heap's underlying storage is overflow");
-        else
-        {
-
-            heapSize++;
-            int hole = heapSize - 1;
-
-            while (hole > 0 && value < data[(hole - 1) / 2])
-            {
-                data[hole] = data[(hole - 1) / 2];
-                hole = (hole - 1) / 2;
-
-            }
-
-            data[hole] = value;
-        }
-
-    }
 
     public void insert(int value)
     {
@@ -99,9 +104,7 @@ public class BinaryMinHeap
             }
         }
     }
-    
-    
-    
+
     public void removeMin()
     {
         if (isEmpty())
@@ -115,21 +118,17 @@ public class BinaryMinHeap
         }
     }
 
-
-
     private void siftDown(int nodeIndex)
     {
         int leftChildIndex, rightChildIndex, minIndex, tmp;
         leftChildIndex = getLeftChildIndex(nodeIndex);
         rightChildIndex = getRightChildIndex(nodeIndex);
-        
-        
-        if (rightChildIndex >= heapSize)   //no right child
+        if (rightChildIndex >= heapSize)
         {
-            if (leftChildIndex >= heapSize)  // no left child
+            if (leftChildIndex >= heapSize)
                 return;
             else
-                minIndex = leftChildIndex;  
+                minIndex = leftChildIndex;
         }
         else
         {
@@ -145,25 +144,54 @@ public class BinaryMinHeap
             data[nodeIndex] = tmp;
             siftDown(minIndex);
         }
-        
-        
-        
     }
-    
-    public void increaseKey(int nodeIndex, int delta)
+
+    /* non-recursion implement. Plus no swap.* */
+    private void insert1(int value)
     {
-        
+        if (heapSize == data.length)
+            throw new HeapException("Heap's underlying storage is overflow");
+        else
+        {
+
+            heapSize++;
+            int hole = heapSize - 1;
+
+            while (hole > 0 && value < data[(hole - 1) / 2])
+            {
+                data[hole] = data[(hole - 1) / 2];
+                hole = (hole - 1) / 2;
+
+            }
+
+            data[hole] = value;
+        }
+
     }
-    
-    public void decreaseKey(int nodeIndex, int delta)
+
+    public void printHeap()
     {
-        
-    }    
-    
-    public void deleteKey(int nodeIndex)
-    {
-        //decreaseKey(int nodeIndex, int delta)
-        //removeMin()
+        for (int i : data)
+        {
+            System.out.print(" " + i);
+        }
     }
-   
+
+    public static void main(String args[])
+    {
+        int[] items =
+        { 4, 12, 5, 11, 78, 6, 17 };
+        // BinaryMinHeap bheap = new BinaryMinHeap(items);
+
+        BinaryMinHeap bheap = new BinaryMinHeap(items.length);
+        for (int i = 0; i < items.length; i++)
+        {
+
+            bheap.insert(items[i]);
+
+        }
+
+        bheap.printHeap();
+
+    }
 }
