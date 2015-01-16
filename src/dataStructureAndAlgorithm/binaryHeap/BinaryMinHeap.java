@@ -47,6 +47,30 @@ public class BinaryMinHeap
             super(message);
         }
     }
+    
+    
+    /*non-recursion implement. Plus no swap.**/
+    private void insert1(int value)
+    {
+        if (heapSize == data.length)
+            throw new HeapException("Heap's underlying storage is overflow");
+        else
+        {
+
+            heapSize++;
+            int hole = heapSize - 1;
+
+            while (hole > 0 && value < data[(hole - 1) / 2])
+            {
+                data[hole] = data[(hole - 1) / 2];
+                hole = (hole - 1) / 2;
+
+            }
+
+            data[hole] = value;
+        }
+
+    }
 
     public void insert(int value)
     {
@@ -98,12 +122,14 @@ public class BinaryMinHeap
         int leftChildIndex, rightChildIndex, minIndex, tmp;
         leftChildIndex = getLeftChildIndex(nodeIndex);
         rightChildIndex = getRightChildIndex(nodeIndex);
-        if (rightChildIndex >= heapSize)
+        
+        
+        if (rightChildIndex >= heapSize)   //no right child
         {
-            if (leftChildIndex >= heapSize)
+            if (leftChildIndex >= heapSize)  // no left child
                 return;
             else
-                minIndex = leftChildIndex;
+                minIndex = leftChildIndex;  
         }
         else
         {
@@ -119,28 +145,25 @@ public class BinaryMinHeap
             data[nodeIndex] = tmp;
             siftDown(minIndex);
         }
+        
+        
+        
     }
     
-    /*non-recursion implement. Plus no swap.**/
-    private void insert1(int value)
+    public void increaseKey(int nodeIndex, int delta)
     {
-        if (heapSize == data.length)
-            throw new HeapException("Heap's underlying storage is overflow");
-        else
-        {
-
-            heapSize++;
-            int hole = heapSize - 1;
-
-            while (hole > 0 && value < data[(hole - 1) / 2])
-            {
-                data[hole] = data[(hole - 1) / 2];
-                hole = (hole - 1) / 2;
-
-            }
-
-            data[hole] = value;
-        }
-
+        
     }
+    
+    public void decreaseKey(int nodeIndex, int delta)
+    {
+        
+    }    
+    
+    public void deleteKey(int nodeIndex)
+    {
+        //decreaseKey(int nodeIndex, int delta)
+        //removeMin()
+    }
+   
 }
