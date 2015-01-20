@@ -1,10 +1,11 @@
 package dataStructureAndAlgorithm.sorting;
+
 import dataStructureAndAlgorithm.binaryHeap.BinaryMinHeap;
 
 public class Sorting
 {
 
-    //交换排序，包括冒泡排序和快速排序；
+    // 交换排序，包括冒泡排序和快速排序；
     public static int[] bubbleSort(int[] source)
     {
         if (source == null || source.length == 0)
@@ -27,7 +28,7 @@ public class Sorting
         return source;
 
     }
-    
+
     public static int partition(int[] a, int left, int right)
     {
         if (a == null || a.length == 0)
@@ -71,10 +72,6 @@ public class Sorting
             quickSort1(arr, index + 1, right);
     }
 
-   
-
-   
-
     public static void printArray(int[] source)
     {
         for (int i = 0; i < source.length; i++)
@@ -91,9 +88,9 @@ public class Sorting
 
         if (left < right)
         {
-            
+
             int i = left, j = right, x = arr[left];
-            
+
             while (i < j)
             {
                 while (i < j && arr[j] >= x)
@@ -119,9 +116,8 @@ public class Sorting
             quickSort2(arr, i + 1, right);
         }
     }
-    
-    
- //插入排序： 包括直接插入排序和希尔排序   
+
+    // 插入排序： 包括直接插入排序和希尔排序
     public static int[] insertSort(int[] source)
     {
         if (source == null || source.length == 0)
@@ -145,10 +141,10 @@ public class Sorting
         return source;
 
     }
-    
-    public static void shellSort( int[] source )
+
+    public static void shellSort(int[] source)
     {
-        if(source == null || source.length == 0)
+        if (source == null || source.length == 0)
             throw new IllegalArgumentException("Invalid Array");
 
         int j = 0, tmp = 0;
@@ -169,10 +165,9 @@ public class Sorting
         }
 
     }
-    
-    
-    //选择排序：包括简单选择排序和堆排序
-    
+
+    // 选择排序：包括简单选择排序和堆排序
+
     public static void selectSort(int[] source)
     {
         if (source == null || source.length == 0)
@@ -195,18 +190,67 @@ public class Sorting
                     position = j;
                 }
             }
-            source[position] = source[i]; 
+            source[position] = source[i];
             source[i] = tmp;
 
         }
 
     }
 
+    public static void heapSort(int[] array)
+    {
+        buildHeap(array);// 构建堆
+        int n = array.length;
+        int i = 0;
+        for (i = n - 1; i >= 1; i--)
+        {
+            swap(array, 0, i);
+            siftDown(array, 0, i);
+        }
+    }
+
+    public static void buildHeap(int[] array)
+    {
+        int n = array.length;// 数组中元素的个数
+        for (int i = n / 2 - 1; i >= 0; i--)
+            siftDown(array, i, n);
+
+    }
+
+    public static void siftDown(int[] source, int index, int max)
+    {
+        int left = 2 * index + 1;// 左孩子的下标（如果存在的话）
+        int right = 2 * index + 2;// 左孩子的下标（如果存在的话）
+
+        int largest = 0;// 寻找3个节点中最大值节点的下标
+        if (left < max && source[left] > source[index])
+            largest = left;
+        else
+            largest = index;
+        if (right < max && source[right] > source[largest])
+            largest = right;
+
+        if (largest != index)
+        {
+            swap(source, largest, index);
+            siftDown(source, largest, max);
+        }
+
+    }
+
+    public static void swap(int[] array, int i, int j)
+    {
+        int temp = 0;
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
     public static void main(String[] args)
     {
         // int[] source = null;
         // int[] source = {};
-        
+
         int[] source =
         { 24, -5, 7, 65, 3, 21, 18, -3, -2, -1 };
         // int[] source ={ 1, 2, 3, 6, 5, 7, 8, 9, 10 };
@@ -215,7 +259,7 @@ public class Sorting
         printArray(source);
 
         System.out.println("\nAfter Sorting:");
-        selectSort(source);
+        heapSort(source);
         printArray(source);
     }
 
