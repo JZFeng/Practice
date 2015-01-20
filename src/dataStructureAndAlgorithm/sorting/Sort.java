@@ -1,45 +1,14 @@
 package dataStructureAndAlgorithm.sorting;
+import dataStructureAndAlgorithm.binaryHeap.BinaryMinHeap;
 
 public class Sort
 {
 
-    public static int partition1(int[] a, int left, int right)
+    public static int partition(int[] a, int left, int right)
     {
-        if(a == null || a.length == 0 )
-            throw new IllegalArgumentException("Invalid Array");
-        
-        int i = left;
-        int j = right;
-        int pivot = a[(left + right) / 2];
-        int tmp = 0;
-
-        while (i <= j)
-        {
-            while (a[i] < pivot)
-                i++;
-            while (a[j] > pivot)
-                j--;
-
-            if (i <= j)
-            {
-                tmp = a[i];
-                a[i] = a[j];
-                a[j] = tmp;
-                i++;
-                j--;
-            }
-        }
-
-        return i;
-
-    }
-
-    public static int partition2(int[] a, int left, int right)
-    {
-        if(a == null || a.length == 0 )
+        if (a == null || a.length == 0)
             throw new IllegalArgumentException("Invalid Array");
 
-        
         int pivot = a[left];
         int i = left;
         int j = right;
@@ -65,18 +34,17 @@ public class Sort
         return i;
 
     }
-    
-    
-    public static void QuickSort1(int[] a, int left, int right)
+
+    public static void QuickSort1(int[] arr, int left, int right)
     {
-        if (a == null || a.length == 0)
+        if (arr == null || arr.length == 0)
             throw new IllegalArgumentException("Array is empty.");
 
-        int index = partition1(a, left, right);
+        int index = partition(arr, left, right);
         if (left < index - 1)
-            QuickSort1(a, left, index - 1);
+            QuickSort1(arr, left, index - 1);
         if (index < right)
-            QuickSort1(a, index+1, right);
+            QuickSort1(arr, index + 1, right);
     }
 
     public static int[] BubbleSort(int[] source)
@@ -141,8 +109,9 @@ public class Sort
 
         if (left < right)
         {
-            // Swap(s[l], s[(l + r) / 2]); //将中间的这个数和第一个数交换 参见注1
+            
             int i = left, j = right, x = arr[left];
+            
             while (i < j)
             {
                 while (i < j && arr[j] >= x)
@@ -168,14 +137,16 @@ public class Sort
             QuickSort2(arr, i + 1, right);
         }
     }
+    
 
     public static void main(String[] args)
     {
         // int[] source = null;
         // int[] source = {};
-         int[] source = { 24, -5, 7, 65, 3, 21, 18, -3, -2, -1 };
-//        int[] source ={ 1, 2, 3, 6, 5, 7, 8, 9, 10 };
-        
+        int[] source =
+        { 24, -5, 7, 65, 3, 21, 18, -3, -2, -1 };
+        // int[] source ={ 1, 2, 3, 6, 5, 7, 8, 9, 10 };
+
         System.out.println("Before Sorting:");
         printArray(source);
 
