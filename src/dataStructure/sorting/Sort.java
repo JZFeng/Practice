@@ -5,7 +5,7 @@ import dataStructure.binaryHeap.BinaryMinHeap;
 public class Sort
 {
 
-    // 交�?�排�?，包括冒泡排�?和快速排�?；
+    // 交�?�排�?，包括冒泡排�?和快速排�?；
     public static int[] bubbleSort(int[] source)
     {
         if (source == null || source.length == 0)
@@ -81,7 +81,7 @@ public class Sort
         System.out.println();
     }
 
-    public static void quickSort2(int arr[], int left, int right) // 返回调整�?�基准数的�?置
+    public static void quickSort2(int arr[], int left, int right) // 返回调整�?�基准数的�?置
     {
         if (arr == null || arr.length == 0)
             throw new IllegalArgumentException("Invalid Argument");
@@ -94,7 +94,7 @@ public class Sort
             while (i < j)
             {
                 while (i < j && arr[j] >= x)
-                    // 从�?��?�左找第一个�?于x的数
+                    // 从�?��?�左找第一个�?于x的数
                     j--;
                 if (i < j)
                 {
@@ -103,7 +103,7 @@ public class Sort
                 }
 
                 while (i < j && arr[i] < x)
-                    // 从左�?��?�找第一个大于等于x的数
+                    // 从左�?��?�找第一个大于等于x的数
                     i++;
                 if (i < j)
                 {
@@ -117,7 +117,7 @@ public class Sort
         }
     }
 
-    // �?�入排�?： 包括直接�?�入排�?和希尔排�?
+    // �?�入排�?： 包括直接�?�入排�?和希尔排�?
     public static int[] insertSort(int[] source)
     {
         if (source == null || source.length == 0)
@@ -166,7 +166,7 @@ public class Sort
 
     }
 
-    // 选择排�?：包括简�?�选择排�?和堆排�?
+    // 选择排�?：包括简�?�选择排�?和堆排�?
 
     public static void selectSort(int[] source)
     {
@@ -219,8 +219,8 @@ public class Sort
 
     public static void siftDown(int[] source, int index, int max)
     {
-        int left = 2 * index + 1;// 左孩�?的下标（如果存在的�?）
-        int right = 2 * index + 2;// 左孩�?的下标（如果存在的�?）
+        int left = 2 * index + 1;// 左孩�?的下标（如果存在的�?）
+        int right = 2 * index + 2;// 左孩�?的下标（如果存在的�?）
 
         int largest = 0;// 寻找3个节点中最大值节点的下标
         if (left < max && source[left] > source[index])
@@ -253,22 +253,22 @@ public class Sort
     {
         // 缓存数组
         int[] tmp = new int[data.length];
-        // buckets用于记录待排�?元素的信�?�
+        // buckets用于记录待排�?元素的信�?�
         // buckets数组定义了max-min个桶
         int[] buckets = new int[max - min];
-        // 计算�?个元素在�?列出现的次数
+        // 计算�?个元素在�?列出现的次数
         for (int i = 0; i < data.length; i++)
         {
             buckets[data[i] - min]++;
         }
-        // 计算“�?�入�?�?�桶内的元素在有�?�?列中的�?置
+        // 计算“�?�入�?�?�桶内的元素在有�?�?列中的�?置
         for (int i = 1; i < max - min; i++)
         {
             buckets[i] = buckets[i] + buckets[i - 1];
         }
-        // 将data中的元素完全�?制到tmp数组中
+        // 将data中的元素完全�?制到tmp数组中
         System.arraycopy(data, 0, tmp, 0, data.length);
-        // 根�?�buckets数组中的信�?�将待排�?列的�?�元素放入相应�?置
+        // 根�?�buckets数组中的信�?�将待排�?列的�?�元素放入相应�?置
         for (int k = data.length - 1; k >= 0; k--)
         {
             data[--buckets[tmp[k] - min]] = tmp[k];
