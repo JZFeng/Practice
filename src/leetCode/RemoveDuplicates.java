@@ -20,22 +20,16 @@ public class RemoveDuplicates
     public static void main(String[] args)
     {
         int a[] = new int[]
-        { 1, 2, 2, 3, 3, 5, 5, 5 };
+        {};
 
-        /*
-         * int index = removeDuplicates(a);
-         * 
-         * System.out.print("After remove the dulp records:"); for (int i = 0; i < index; i++) { System.out.print(a[i] +
-         * " "); }
-         */
 
-        LinkedList<Integer> ll = removeDuplicates1(a);
+        System.out.println(removeDuplicates(a));
+ /*       LinkedList<Integer> ll = removeDuplicates1(a);
 
         for (Integer integer : ll)
         {
             System.out.print(integer + ",");
-            ;
-        }
+        }*/
     }
 
     /**
@@ -46,7 +40,7 @@ public class RemoveDuplicates
     public static int removeDuplicates(int[] a)
     {
         if (a == null || a.length == 0)
-            return -1;
+            return 0;
 
         int k = 0;
         for (int i = 1; i < a.length; i++)
