@@ -7,7 +7,13 @@ public class ReverseInt
     {
         // TODO Auto-generated method stub
         
+        StringBuilder sb  = new StringBuilder("I love steven"); 
+        sb.reverse();
+        System.out.println(sb);
+        
+                
         System.out.println(reverse(-123));
+        
 
     }
 
