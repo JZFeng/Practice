@@ -1,7 +1,5 @@
 package leetCode.easy;
 
-import leetCode.easy.MergeTwoLists.ListNode;
-
 public class IntersectionofTwoLinkedLists
 {
 
@@ -63,16 +61,4 @@ public class IntersectionofTwoLinkedLists
         }
     }
 
-    public static class ListNode
-    {
-        int val;
-
-        ListNode next;
-
-        ListNode(int x)
-        {
-            val = x;
-            next = null;
-        }
-    }
 }
