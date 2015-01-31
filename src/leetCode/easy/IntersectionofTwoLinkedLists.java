@@ -1,5 +1,7 @@
 package leetCode.easy;
 
+import leetCode.utility.ListNode;
+
 public class IntersectionofTwoLinkedLists
 {
 
