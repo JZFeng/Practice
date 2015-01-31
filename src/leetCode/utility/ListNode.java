@@ -12,5 +12,34 @@ public class ListNode
         next = null;
     }
     
+    public static ListNode buildListFromArray(int[] arr)
+    {
+        if(arr == null || arr.length ==0)
+            throw new IllegalArgumentException("Invalid Int Array.");
+        
+        ListNode head = new ListNode(arr[0]);
+        int length = arr.length;
+        ListNode tmp = head;
+        for(int i = 1; i < length; i++)
+        {
+            tmp.next = new ListNode(arr[i]);
+            tmp = tmp.next;
+        }
+        
+        return head;
+    }
+    
+    public static void printList(ListNode head)
+    {
+        if(head == null)
+            return;
+        
+        while(head != null)
+        {
+            System.out.print(head.val+" ");
+            head = head.next;
+        }
+    }
+    
     
 }
