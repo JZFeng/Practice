@@ -37,6 +37,9 @@ public class LevelOrder
     }
     
     
+    
+    
+        
     public static List<List<Integer>> levelOrder1(TreeNode root)
     {
         List<List<Integer>> results = new ArrayList<List<Integer>>();
@@ -50,9 +53,10 @@ public class LevelOrder
         int nodesInCurrentLevel = 1;
         int nodesInNextLevel = 0;
         
+        List<Integer> levelArray = new ArrayList<Integer>();
+        results.add(levelArray);
         while (!queue.isEmpty())
         {
-            List<Integer> levelArray = new ArrayList<Integer>();
             TreeNode currNode = queue.poll();
             nodesInCurrentLevel--;
             levelArray.add(currNode.val);
@@ -73,8 +77,12 @@ public class LevelOrder
             {
                 nodesInCurrentLevel = nodesInNextLevel;
                 nodesInNextLevel = 0;
-                results.add(levelArray);
-                levelArray = new ArrayList<Integer>();
+                if(nodesInCurrentLevel >0)
+                {
+                    levelArray = new ArrayList<Integer>();
+                    results.add(levelArray);
+                    
+                }
             }
         }
 
