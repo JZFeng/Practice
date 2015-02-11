@@ -12,4 +12,11 @@ public class TreeNode
     {
         val = x;
     }
+    
+    
+    public static void main(String args[])
+    {
+        int arr[]  = {3,9,20,'#','#',15,7};
+        
+    }
 }
