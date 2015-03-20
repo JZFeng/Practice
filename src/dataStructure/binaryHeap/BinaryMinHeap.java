@@ -141,6 +141,8 @@ public class BinaryMinHeap
             else
                 minIndex = rightChildIndex;
         }
+        
+        
         if (data[nodeIndex] > data[minIndex])
         {
             tmp = data[minIndex];
