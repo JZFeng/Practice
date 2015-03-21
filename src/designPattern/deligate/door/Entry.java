@@ -7,8 +7,7 @@ public class Entry
 
     public static void main(String[] args)
     {
-        Runnable runnable = new LightDoor();
-        Thread thread = new Thread(runnable);
+        Thread thread = new Thread(new LightDoor());
         thread.start();
         System.out.println("This is the main thread statement.");
 

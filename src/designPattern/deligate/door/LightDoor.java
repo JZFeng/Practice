@@ -31,10 +31,12 @@ public class LightDoor extends Door implements Runnable
             if (isX)
             {
                 System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXX");
+                isX = false;
             }
             else
             {
                 System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZ");
+                isX = true;
             }
            
             try
@@ -46,7 +48,6 @@ public class LightDoor extends Door implements Runnable
                 e.printStackTrace();
             }
             
-            isX=true;
         }
         
     }
