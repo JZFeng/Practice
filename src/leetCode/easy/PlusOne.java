@@ -5,8 +5,7 @@ public class PlusOne
 
     public static void main(String[] args)
     {
-        int[] digits =
-        { 9, 8 };
+        int[] digits = { 9, 8 };
         int[] results = plusOne(digits);
 
     }

@@ -1,7 +1,5 @@
 package designPattern.deligate.door;
 
-import java.io.Console;
-
 public class Entry
 {
 

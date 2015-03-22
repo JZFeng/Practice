@@ -6,14 +6,17 @@ public class CompareVersions
     public static void main(String args[])
     {
         String[] v1 = "1.0.0.42".split("\\.");
+        
         for (int i = 0; i < v1.length; i++)
         {
             System.out.println(v1[i]);
         }
+        
+        System.out.println(compareVersion("1.0.2", "2.5"));
 
     }
 
-    public int compareVersion(String version1, String version2)
+    public static int compareVersion(String version1, String version2)
     {
         if (version1 == null || version2 == null)
         {
@@ -61,7 +64,7 @@ public class CompareVersions
         }
     }
 
-    public boolean isZero(String[] v, int minlen)
+    public static boolean isZero(String[] v, int minlen)
     {
         for (int i = minlen; i < v.length; i++)
         {
