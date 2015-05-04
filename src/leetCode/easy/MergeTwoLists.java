@@ -1,7 +1,5 @@
 package leetCode.easy;
 
-import java.util.Iterator;
-
 public class MergeTwoLists
 {
 

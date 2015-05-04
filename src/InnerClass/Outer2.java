@@ -17,8 +17,6 @@ class Outer2
             System.out.println(this.index); // output is 20
             System.out.println(Outer2.this.index); // output is 10
         }
-        
-
     }
 
     void print()
@@ -27,9 +25,27 @@ class Outer2
         inner.print();
     }
 
+    public static void outer2_f2()
+    {
+        Outer2 outer = new Outer2();
+        Outer2.Inner in = outer.new Inner();
+        /*Inner inner = outer.new Inner();
+        inner.print();*/
+       
+    }
+    
     public static void main(String[] args)
     {
         Outer2 outer2 = new Outer2();
         outer2.print();
+        
+        Thread t = new Thread(new Runnable(){
+            public void run()
+            {
+                System.out.println("Hello");
+            }
+        }     );
     }
+    
+    
 }

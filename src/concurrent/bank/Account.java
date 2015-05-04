@@ -50,4 +50,9 @@ class Account
     {
         return amount;
     }
+    public Account()
+    {
+        // TODO Auto-generated constructor stub
+    }
+    
 }

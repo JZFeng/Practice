@@ -8,9 +8,6 @@ public class DeleteDuplicates
         ListNode head = new ListNode(10);
         head.next = new ListNode(10);
         head.next.next = new ListNode(10);
-        
-        
-        
 
     }
 
