@@ -12,8 +12,7 @@ public class FileInputTest
     public static void main(String[] args) throws IOException
     {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(
-                "a.txt")));
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("a.txt")));
         String s = br.readLine();
         while (s != null)
         {

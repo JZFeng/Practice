@@ -1,6 +1,7 @@
 package javaio;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Enumeration;
@@ -9,14 +10,28 @@ import java.util.LinkedList;
 public class getAllFilesFromADirectory
 {
     public static void main(String args[]) throws Exception
-    { // 所有异常抛出
-        File file = new File("zip"); // 定义要压缩的文件
-         getDirectory(file);
-        // traverseFolder2("zip");
-
-//        traverseFolder1("zip");
+    { 
+        File file = new File("zip"); 
+        String[] files = file.list();
+        for (String string : files)
+        {
+            System.out.println(string);
+        }
     }
 
+    
+    class TextFilter implements FileFilter
+    {
+
+        @Override
+        public boolean accept(File pathname)
+        {
+            return false;
+        }
+        
+    }
+    
+    
     public static void getDirectory(File file)
     {
         File flist[] = file.listFiles();
@@ -30,14 +45,11 @@ public class getAllFilesFromADirectory
         {
             if (f.isDirectory())
             {
-                // 这里将列出所有的文件夹
                 System.out.println("Dir==>" + f.getAbsolutePath());
                 getDirectory(f);
             }
             else
             {
-                // 这里将列出所有的文件
-                System.out.println("file==>" + f.getAbsolutePath());
             }
         }
     }
