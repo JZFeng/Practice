@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Java ÓïÑÔ: AVLÊ÷
+ * Java ï¿½ï¿½ï¿½ï¿½: AVLï¿½ï¿½
  * 
  * @author skywang
  * @date 2013/11/07
@@ -12,23 +12,23 @@ import java.util.Queue;
 
 public class AVLTree<T extends Comparable<T>>
 {
-    private AVLTreeNode<T> mRoot; // ¸ù½áµã
+    private AVLTreeNode<T> mRoot; // ï¿½ï¿½ï¿½ï¿½
 
     public AVLTreeNode<T> getRoot()
     {
         return this.mRoot;
     }
 
-    // AVLÊ÷µÄ½Úµã(ÄÚ²¿Àà)
+    // AVLï¿½ï¿½ï¿½Ä½Úµï¿½(ï¿½Ú²ï¿½ï¿½ï¿½)
     class AVLTreeNode<T extends Comparable<T>>
     {
-        T key; // ¹Ø¼ü×Ö(¼üÖµ)
+        T key; // ï¿½Ø¼ï¿½ï¿½ï¿½(ï¿½ï¿½Öµ)
 
-        int height; // ¸ß¶È
+        int height; // ï¿½ß¶ï¿½
 
-        AVLTreeNode<T> left; // ×óº¢×Ó
+        AVLTreeNode<T> left; // ï¿½ï¿½ï¿½ï¿½
 
-        AVLTreeNode<T> right; // ÓÒº¢×Ó
+        AVLTreeNode<T> right; // ï¿½Òºï¿½ï¿½ï¿½
 
         public AVLTreeNode(T key, AVLTreeNode<T> left, AVLTreeNode<T> right)
         {
@@ -40,14 +40,14 @@ public class AVLTree<T extends Comparable<T>>
 
     }
 
-    // ¹¹Ôìº¯Êý
+    // ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
     public AVLTree()
     {
         mRoot = null;
     }
 
     /*
-     * »ñÈ¡Ê÷µÄ¸ß¶È
+     * ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ä¸ß¶ï¿½
      */
     private int height(AVLTreeNode<T> tree)
     {
@@ -61,9 +61,9 @@ public class AVLTree<T extends Comparable<T>>
     {
         return height(mRoot);
     }
-
+   
     /*
-     * ±È½ÏÁ½¸öÖµµÄ´óÐ¡
+     * ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ä´ï¿½Ð¡
      */
     private int max(int a, int b)
     {
@@ -71,7 +71,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * Ç°Ðò±éÀú'AVLÊ÷'
+     * Ç°ï¿½ï¿½ï¿½ï¿½ï¿½'AVLï¿½ï¿½'
      */
     private void preOrder(AVLTreeNode<T> tree)
     {
@@ -89,7 +89,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * ÖÐÐò±éÀú'AVLÊ÷'
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'AVLï¿½ï¿½'
      */
     private void inOrder(AVLTreeNode<T> tree)
     {
@@ -107,7 +107,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * ºóÐò±éÀú'AVLÊ÷'
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'AVLï¿½ï¿½'
      */
     private void postOrder(AVLTreeNode<T> tree)
     {
@@ -125,7 +125,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * (µÝ¹éÊµÏÖ)²éÕÒ'AVLÊ÷x'ÖÐ¼üÖµÎªkeyµÄ½Úµã
+     * (ï¿½Ý¹ï¿½Êµï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½'AVLï¿½ï¿½x'ï¿½Ð¼ï¿½ÖµÎªkeyï¿½Ä½Úµï¿½
      */
     private AVLTreeNode<T> search(AVLTreeNode<T> x, T key)
     {
@@ -147,7 +147,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * (·ÇµÝ¹éÊµÏÖ)²éÕÒ'AVLÊ÷x'ÖÐ¼üÖµÎªkeyµÄ½Úµã
+     * (ï¿½ÇµÝ¹ï¿½Êµï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½'AVLï¿½ï¿½x'ï¿½Ð¼ï¿½ÖµÎªkeyï¿½Ä½Úµï¿½
      */
     private AVLTreeNode<T> iterativeSearch(AVLTreeNode<T> x, T key)
     {
@@ -172,7 +172,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * ²éÕÒ×îÐ¡½áµã£º·µ»ØtreeÎª¸ù½áµãµÄAVLÊ÷µÄ×îÐ¡½áµã¡£
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ã£ºï¿½ï¿½ï¿½ï¿½treeÎªï¿½ï¿½ï¿½ï¿½ï¿½AVLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ã¡£
      */
     private AVLTreeNode<T> minimum(AVLTreeNode<T> tree)
     {
@@ -194,7 +194,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * ²éÕÒ×î´ó½áµã£º·µ»ØtreeÎª¸ù½áµãµÄAVLÊ÷µÄ×î´ó½áµã¡£
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£ºï¿½ï¿½ï¿½ï¿½treeÎªï¿½ï¿½ï¿½ï¿½ï¿½AVLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡£
      */
     private AVLTreeNode<T> maximum(AVLTreeNode<T> tree)
     {
@@ -216,9 +216,9 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * LL£º×ó×ó¶ÔÓ¦µÄÇé¿ö(×óµ¥Ðý×ª)¡£
+     * LLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½×ª)ï¿½ï¿½
      * 
-     * ·µ»ØÖµ£ºÐý×ªºóµÄ¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ä¸ï¿½Úµï¿½
      */
     private AVLTreeNode<T> leftLeftRotation(AVLTreeNode<T> k2)
     {
@@ -235,9 +235,9 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * RR£ºÓÒÓÒ¶ÔÓ¦µÄÇé¿ö(ÓÒµ¥Ðý×ª)¡£
+     * RRï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Òµï¿½ï¿½ï¿½×ª)ï¿½ï¿½
      * 
-     * ·µ»ØÖµ£ºÐý×ªºóµÄ¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ä¸ï¿½Úµï¿½
      */
     private AVLTreeNode<T> rightRightRotation(AVLTreeNode<T> k1)
     {
@@ -254,9 +254,9 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * LR£º×óÓÒ¶ÔÓ¦µÄÇé¿ö(×óË«Ðý×ª)¡£
+     * LRï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ë«ï¿½ï¿½×ª)ï¿½ï¿½
      * 
-     * ·µ»ØÖµ£ºÐý×ªºóµÄ¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ä¸ï¿½Úµï¿½
      */
     private AVLTreeNode<T> leftRightRotation(AVLTreeNode<T> k3)
     {
@@ -266,9 +266,9 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * RL£ºÓÒ×ó¶ÔÓ¦µÄÇé¿ö(ÓÒË«Ðý×ª)¡£
+     * RLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ë«ï¿½ï¿½×ª)ï¿½ï¿½
      * 
-     * ·µ»ØÖµ£ºÐý×ªºóµÄ¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ä¸ï¿½Úµï¿½
      */
     private AVLTreeNode<T> rightLeftRotation(AVLTreeNode<T> k1)
     {
@@ -278,15 +278,15 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * ½«½áµã²åÈëµ½AVLÊ÷ÖÐ£¬²¢·µ»Ø¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ëµ½AVLï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Úµï¿½
      * 
-     * ²ÎÊýËµÃ÷£º tree AVLÊ÷µÄ¸ù½áµã key ²åÈëµÄ½áµãµÄ¼üÖµ ·µ»ØÖµ£º ¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ tree AVLï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ key ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½Ä¼ï¿½Öµ ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ ï¿½ï¿½Úµï¿½
      */
     private AVLTreeNode<T> add(AVLTreeNode<T> tree, T key)
     {
         if (tree == null)
         {
-            // ÐÂ½¨½Úµã
+            // ï¿½Â½ï¿½ï¿½Úµï¿½
             tree = new AVLTreeNode<T>(key, null, null);
             if (tree == null)
             {
@@ -299,9 +299,9 @@ public class AVLTree<T extends Comparable<T>>
             int cmp = key.compareTo(tree.key);
 
             if (cmp < 0)
-            { // Ó¦¸Ã½«key²åÈëµ½'treeµÄ×ó×ÓÊ÷'µÄÇé¿ö
+            { // Ó¦ï¿½Ã½ï¿½keyï¿½ï¿½ï¿½ëµ½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½ï¿½ï¿½
                 tree.left = add(tree.left, key);
-                // ²åÈë½Úµãºó£¬ÈôAVLÊ÷Ê§È¥Æ½ºâ£¬Ôò½øÐÐÏàÓ¦µÄµ÷½Ú¡£
+                // ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½AVLï¿½ï¿½Ê§È¥Æ½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Äµï¿½ï¿½Ú¡ï¿½
                 // recursion, Tree is always changing
 
                 if (height(tree.left) - height(tree.right) == 2)
@@ -313,9 +313,9 @@ public class AVLTree<T extends Comparable<T>>
                 }
             }
             else if (cmp > 0)
-            { // Ó¦¸Ã½«key²åÈëµ½'treeµÄÓÒ×ÓÊ÷'µÄÇé¿ö
+            { // Ó¦ï¿½Ã½ï¿½keyï¿½ï¿½ï¿½ëµ½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½ï¿½ï¿½
                 tree.right = add(tree.right, key);
-                // ²åÈë½Úµãºó£¬ÈôAVLÊ÷Ê§È¥Æ½ºâ£¬Ôò½øÐÐÏàÓ¦µÄµ÷½Ú¡£
+                // ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½AVLï¿½ï¿½Ê§È¥Æ½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Äµï¿½ï¿½Ú¡ï¿½
                 if (height(tree.right) - height(tree.left) == 2)
                 {
                     if (key.compareTo(tree.right.key) > 0)
@@ -326,7 +326,7 @@ public class AVLTree<T extends Comparable<T>>
             }
             else
             { // cmp==0
-                System.out.println("Ìí¼ÓÊ§°Ü£º²»ÔÊÐíÌí¼ÓÏàÍ¬µÄ½Úµã£¡");
+                System.out.println("ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½Ä½Úµã£¡");
             }
         }
 
@@ -342,22 +342,22 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * É¾³ý½áµã(z)£¬·µ»Ø¸ù½Úµã
+     * É¾ï¿½ï¿½ï¿½ï¿½(z)ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Úµï¿½
      * 
-     * ²ÎÊýËµÃ÷£º tree AVLÊ÷µÄ¸ù½áµã z ´ýÉ¾³ýµÄ½áµã ·µ»ØÖµ£º ¸ù½Úµã
+     * ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ tree AVLï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ z ï¿½ï¿½É¾ï¿½ï¿½Ä½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ ï¿½ï¿½Úµï¿½
      */
     private AVLTreeNode<T> remove(AVLTreeNode<T> tree, AVLTreeNode<T> z)
     {
-        // ¸ùÎª¿Õ »òÕß Ã»ÓÐÒªÉ¾³ýµÄ½Úµã£¬Ö±½Ó·µ»Ønull¡£
+        // ï¿½ï¿½Îªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã»ï¿½ï¿½ÒªÉ¾ï¿½ï¿½Ä½Úµã£¬Ö±ï¿½Ó·ï¿½ï¿½ï¿½nullï¿½ï¿½
         if (tree == null || z == null)
             return null;
 
         int cmp = z.key.compareTo(tree.key);
         if (cmp < 0)
-        { // ´ýÉ¾³ýµÄ½ÚµãÔÚ'treeµÄ×ó×ÓÊ÷'ÖÐ
+        { // ï¿½ï¿½É¾ï¿½ï¿½Ä½Úµï¿½ï¿½ï¿½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½
             tree.left = remove(tree.left, z);
 
-            // É¾³ý½Úµãºó£¬ÈôAVLÊ÷Ê§È¥Æ½ºâ£¬Ôò½øÐÐÏàÓ¦µÄµ÷½Ú¡£
+            // É¾ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½AVLï¿½ï¿½Ê§È¥Æ½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Äµï¿½ï¿½Ú¡ï¿½
             if (height(tree.right) - height(tree.left) == 2)
             {
                 AVLTreeNode<T> r = tree.right;
@@ -368,9 +368,9 @@ public class AVLTree<T extends Comparable<T>>
             }
         }
         else if (cmp > 0)
-        { // ´ýÉ¾³ýµÄ½ÚµãÔÚ'treeµÄÓÒ×ÓÊ÷'ÖÐ
+        { // ï¿½ï¿½É¾ï¿½ï¿½Ä½Úµï¿½ï¿½ï¿½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½
             tree.right = remove(tree.right, z);
-            // É¾³ý½Úµãºó£¬ÈôAVLÊ÷Ê§È¥Æ½ºâ£¬Ôò½øÐÐÏàÓ¦µÄµ÷½Ú¡£
+            // É¾ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½AVLï¿½ï¿½Ê§È¥Æ½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Äµï¿½ï¿½Ú¡ï¿½
             if (height(tree.left) - height(tree.right) == 2)
             {
                 AVLTreeNode<T> l = tree.left;
@@ -387,24 +387,24 @@ public class AVLTree<T extends Comparable<T>>
             {
                 if (height(tree.left) > height(tree.right))
                 {
-                    // Èç¹ûtreeµÄ×ó×ÓÊ÷±ÈÓÒ×ÓÊ÷¸ß£»
-                    // Ôò(01)ÕÒ³ötreeµÄ×ó×ÓÊ÷ÖÐµÄ×î´ó½Úµã
-                    // (02)½«¸Ã×î´ó½ÚµãµÄÖµ¸³Öµ¸øtree¡£
-                    // (03)É¾³ý¸Ã×î´ó½Úµã¡£
-                    // ÕâÀàËÆÓÚÓÃ'treeµÄ×ó×ÓÊ÷ÖÐ×î´ó½Úµã'×ö'tree'µÄÌæÉí£»
-                    // ²ÉÓÃÕâÖÖ·½Ê½µÄºÃ´¦ÊÇ£ºÉ¾³ý'treeµÄ×ó×ÓÊ÷ÖÐ×î´ó½Úµã'Ö®ºó£¬AVLÊ÷ÈÔÈ»ÊÇÆ½ºâµÄ¡£
+                    // ï¿½ï¿½ï¿½treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½
+                    // ï¿½ï¿½(01)ï¿½Ò³ï¿½treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Úµï¿½
+                    // (02)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Öµï¿½ï¿½Öµï¿½ï¿½treeï¿½ï¿½
+                    // (03)É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½'ï¿½ï¿½'tree'ï¿½ï¿½ï¿½ï¿½ï¿½?
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ÄºÃ´ï¿½ï¿½Ç£ï¿½É¾ï¿½ï¿½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½'Ö®ï¿½ï¿½AVLï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½Æ½ï¿½ï¿½Ä¡ï¿½
                     AVLTreeNode<T> max = maximum(tree.left);
                     tree.key = max.key;
                     tree.left = remove(tree.left, max);
                 }
                 else
                 {
-                    // Èç¹ûtreeµÄ×ó×ÓÊ÷²»±ÈÓÒ×ÓÊ÷¸ß(¼´ËüÃÇÏàµÈ£¬»òÓÒ×ÓÊ÷±È×ó×ÓÊ÷¸ß1)
-                    // Ôò(01)ÕÒ³ötreeµÄÓÒ×ÓÊ÷ÖÐµÄ×îÐ¡½Úµã
-                    // (02)½«¸Ã×îÐ¡½ÚµãµÄÖµ¸³Öµ¸øtree¡£
-                    // (03)É¾³ý¸Ã×îÐ¡½Úµã¡£
-                    // ÕâÀàËÆÓÚÓÃ'treeµÄÓÒ×ÓÊ÷ÖÐ×îÐ¡½Úµã'×ö'tree'µÄÌæÉí£»
-                    // ²ÉÓÃÕâÖÖ·½Ê½µÄºÃ´¦ÊÇ£ºÉ¾³ý'treeµÄÓÒ×ÓÊ÷ÖÐ×îÐ¡½Úµã'Ö®ºó£¬AVLÊ÷ÈÔÈ»ÊÇÆ½ºâµÄ¡£
+                    // ï¿½ï¿½ï¿½treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1)
+                    // ï¿½ï¿½(01)ï¿½Ò³ï¿½treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ð¡ï¿½Úµï¿½
+                    // (02)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Úµï¿½ï¿½Öµï¿½ï¿½Öµï¿½ï¿½treeï¿½ï¿½
+                    // (03)É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Úµã¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Úµï¿½'ï¿½ï¿½'tree'ï¿½ï¿½ï¿½ï¿½ï¿½?
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ÄºÃ´ï¿½ï¿½Ç£ï¿½É¾ï¿½ï¿½'treeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Úµï¿½'Ö®ï¿½ï¿½AVLï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½Æ½ï¿½ï¿½Ä¡ï¿½
                     AVLTreeNode<T> min = minimum(tree.right);
                     tree.key = min.key;
                     tree.right = remove(tree.right, min);
@@ -430,7 +430,7 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * Ïú»ÙAVLÊ÷
+     * ï¿½ï¿½ï¿½AVLï¿½ï¿½
      */
     private void destroy(AVLTreeNode<T> tree)
     {
@@ -452,18 +452,18 @@ public class AVLTree<T extends Comparable<T>>
     }
 
     /*
-     * ´òÓ¡'¶þ²æ²éÕÒÊ÷'
+     * ï¿½ï¿½Ó¡'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
      * 
-     * key -- ½ÚµãµÄ¼üÖµ direction -- 0£¬±íÊ¾¸Ã½ÚµãÊÇ¸ù½Úµã; -1£¬±íÊ¾¸Ã½ÚµãÊÇËüµÄ¸¸½áµãµÄ×óº¢×Ó; 1£¬±íÊ¾¸Ã½ÚµãÊÇËüµÄ¸¸½áµãµÄÓÒº¢×Ó¡£
+     * key -- ï¿½Úµï¿½Ä¼ï¿½Öµ direction -- 0ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ã½Úµï¿½ï¿½Ç¸ï¿½Úµï¿½; -1ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½; 1ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òºï¿½ï¿½Ó¡ï¿½
      */
     private void print(AVLTreeNode<T> tree, T key, int direction)
     {
         if (tree != null)
         {
-            if (direction == 0) // treeÊÇ¸ù½Úµã
+            if (direction == 0) // treeï¿½Ç¸ï¿½Úµï¿½
                 System.out.printf(tree.key.toString());
             else
-                // treeÊÇ·ÖÖ§½Úµã
+                // treeï¿½Ç·ï¿½Ö§ï¿½Úµï¿½
                 System.out.println(tree.key.toString() + key
                         + (direction == 1 ? "right" : "left"));
 
@@ -492,7 +492,7 @@ public class AVLTree<T extends Comparable<T>>
      * 
      * if (nextNode.left != null) queue.offer(nextNode.left); if (nextNode.right != null) queue.offer(nextNode.right);
      * 
-     * prevNode = nextNode; //Õâ¾ä»°Ò»°ã·ÅÔÚ×îºó¡£
+     * prevNode = nextNode; //ï¿½ï¿½ä»°Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * 
      * }
      * 
@@ -575,10 +575,10 @@ public class AVLTree<T extends Comparable<T>>
                 nextLevel.offer(currNode.right);
 
             /*
-             * The first queue stores the current level¡¯s nodes. The second queue stores the next level¡¯s nodes (the
-             * current level nodes¡¯ children). When the first queue is emptied, we know that it must have reached the
+             * The first queue stores the current levelï¿½ï¿½s nodes. The second queue stores the next levelï¿½ï¿½s nodes (the
+             * current level nodesï¿½ï¿½ children). When the first queue is emptied, we know that it must have reached the
              * end of the current level therefore we print a newline. Then, we switch the emptied first queue with the
-             * second queue (which is populated with the next level¡¯s nodes). Then we repeat the process over again.
+             * second queue (which is populated with the next levelï¿½ï¿½s nodes). Then we repeat the process over again.
              */
             if (currentLevel.isEmpty())
             {
