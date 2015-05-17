@@ -3,16 +3,20 @@ package thisDemo;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 public class Entry
 {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws UnsupportedEncodingException
     {
+        System.out.println( System.getProperty("file.encoding"));
+        String s = "æˆ‘æ˜¯å†¯å»ºä¸­";
+        String s1 = new String(s.getBytes("UTF-8"),"UTF-8");
+        System.out.println(s1);
         new Person().eatApple(new Apple());
         Flower flower = new Flower();
 
-        String s = null;
         InputStreamReader re = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(re);
         try
@@ -25,10 +29,12 @@ public class Entry
         {
             e.printStackTrace();
         }
-        catch (NumberFormatException e)// µ±Ó¦ÓÃ³ÌÐòÊÔÍ¼½«×Ö·û´®×ª»»³ÉÒ»ÖÖÊýÖµÀàÐÍ£¬µ«¸Ã×Ö·û´®²»ÄÜ×ª»»ÎªÊÊµ±¸ñÊ½Ê±£¬Å×³ö¸ÃÒì³£¡£
+        catch (NumberFormatException e)// ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ö·ï¿½×ªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½Êµï¿½ï¿½ï¿½Ê½Ê±ï¿½ï¿½ï¿½×³ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½
         {
-            System.out.println(" ÊäÈëµÄ²»ÊÇÊý×Ö ");
+            System.out.println(" ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ");
         }
+        
+       
     }
 
 }

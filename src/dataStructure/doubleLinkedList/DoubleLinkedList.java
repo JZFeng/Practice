@@ -205,6 +205,7 @@ public class DoubleLinkedList implements Iterable
 
         size--;
         modAmount++;
+        
         return removedNode;
     }
     
