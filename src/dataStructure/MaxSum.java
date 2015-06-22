@@ -6,12 +6,12 @@ public class MaxSum
     {
         // int a[] ={ -4, -3, 5, 2, 1, 2,3};
         int a[] =
-        { 4, -3, 5, -2, -1, 2, 6, -2 };
+        { -4, -3, 5, -2, -1, 2, 6, -2 };
 
-        System.out.println(maxSum3(a, 0, a.length - 1));
+        System.out.println("MaxSum:"+ maxSum2(a));
     }
 
-    /** ÇóËùÓÐµÄ×ÓÐòÁÐºÍ,Ê±¼ä¸´ÔÓ¶ÈÊÇO(N^2)*/
+    /** ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½,Ê±ï¿½ä¸´ï¿½Ó¶ï¿½ï¿½ï¿½O(N^2)*/
     public static int maxSum1(int[] a)
     {
         if (a == null || a.length == 0)
@@ -44,7 +44,7 @@ public class MaxSum
    
     
     /*
-     *  ×îÓÅ½â¾ö·½°¸,Ê±¼ä¸´ÔÓ¶ÈÊÇO(N)
+     *  ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ê±ï¿½ä¸´ï¿½Ó¶ï¿½ï¿½ï¿½O(N)
      *  int[] a = { 4, -3, 5, -2, -1, 2, 6, -2 };
    */
     public static int maxSum2(int[] a)
@@ -57,26 +57,22 @@ public class MaxSum
 
         int thisSum = 0;
         int maxSum = 0;
-        int j;
         int startIndex = 0;
         int endIndex = 0;
 
-        for (j = 0; j < a.length; j++)
+        for (int i = 0; i < a.length; i++)
         {
-            thisSum += a[j];
+            thisSum += a[i];
             if (thisSum > maxSum)
             {
                 maxSum = thisSum;
-                endIndex = j;
-
+                endIndex = i;
             }
             else if (thisSum < 0)
             {
                 thisSum = 0;
-                startIndex = j + 1;
-
+                startIndex = i + 1;
             }
-
         }
 
         System.out.println("From " + startIndex + " to " + endIndex);
@@ -89,7 +85,7 @@ public class MaxSum
     }
 
  /*
-  * division and conquer·ÖÖÎ·¨±ØÐëÒªÓÃµÝ¹é£¬°Ñ´óµÄÎÊÌâ·Ö½â³ÉÐ¡µÄÎÊÌâ¡£
+  * division and conquerï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ÃµÝ¹é£¬ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½â¡£
   * */
     public static int maxSum3(int[] a, int left, int right)
     {
@@ -134,5 +130,8 @@ public class MaxSum
         return tmp > c ? tmp : c;
 
     }
+    
+    
+
 
 }

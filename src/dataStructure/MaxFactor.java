@@ -2,7 +2,7 @@ package dataStructure;
 
 public class MaxFactor
 {
-    public static long gcd(long a, long b)
+    public static long commonDivision(long a, long b)
     {
         
         if(a<b)
@@ -22,10 +22,16 @@ public class MaxFactor
         return a;
         
     }
+    
+    public static long commonMultiple(long a, long b)
+    {
+        return a*b/commonDivision(a, b);
+    }
 
     // Test program
     public static void main(String[] args)
     {
-        System.out.println(gcd(45, 39));
+        System.out.println(commonDivision(42, 12));
+        System.out.println(commonMultiple(42, 12));
     }
 }

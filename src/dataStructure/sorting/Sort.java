@@ -1,6 +1,5 @@
 package dataStructure.sorting;
 
-import dataStructure.binaryHeap.BinaryMinHeap;
 
 public class Sort
 {
@@ -41,9 +40,9 @@ public class Sort
 
         while (i <= j)
         {
-            while (a[i] < pivot)
+            while (i<j && a[i] < pivot)
                 i++;
-            while (a[j] > pivot)
+            while (i<j && a[j] > pivot)
                 j--;
 
             if (i <= j)
@@ -251,27 +250,21 @@ public class Sort
 
     public static void bucketSort(int[] data, int min, int max)
     {
-        // 缓存数组
-        int[] tmp = new int[data.length];
-        // buckets用于记录待排�?元素的信�?�
-        // buckets数组定义了max-min个桶
-        int[] buckets = new int[max - min];
-        // 计算�?个元素在�?列出现的次数
+        if(data.length == 0 || data == null)
+            return ;
+        
+        int length = max - min+1;
+        int  sorted[] = new int[length];
         for (int i = 0; i < data.length; i++)
         {
-            buckets[data[i] - min]++;
+            int index = data[i]-min;
+            sorted[index] = data[i];
         }
-        // 计算“�?�入�?�?�桶内的元素在有�?�?列中的�?置
-        for (int i = 1; i < max - min; i++)
+        
+        for (int i = 0; i < sorted.length; i++)
         {
-            buckets[i] = buckets[i] + buckets[i - 1];
-        }
-        // 将data中的元素完全�?制到tmp数组中
-        System.arraycopy(data, 0, tmp, 0, data.length);
-        // 根�?�buckets数组中的信�?�将待排�?列的�?�元素放入相应�?置
-        for (int k = data.length - 1; k >= 0; k--)
-        {
-            data[--buckets[tmp[k] - min]] = tmp[k];
+            if(sorted[i]!=0)
+                System.out.println(sorted[i]);
         }
     }
 
@@ -286,13 +279,13 @@ public class Sort
 
 //        int[] source ={ 24, -5, 7, 65, 3, 21, 18, -3, -2, -1 };
       
-         int[] source ={ 1, 2, 3, 6, 5, 7, 8, 9, 10 };
+         int[] source ={ 6, 2, 3, 11 };
 
         System.out.println("Before Sorting:");
         printArray(source);
 
         System.out.println("\nAfter Sorting:");
-        bucketSort(source,0,11);
+        bucketSort(source,2,11);
         printArray(source);
     }
 

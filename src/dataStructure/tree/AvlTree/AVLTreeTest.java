@@ -7,8 +7,8 @@ public class AVLTreeTest
 
     private static int arr[] =
 //        {10,40,20,30};
-//        {10,20,30,40,50,60,70};
-        {3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9};
+        {10,20,30,40,50,60,70};
+//        {3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9};
 
 
     public static void main(String[] args)
@@ -16,49 +16,49 @@ public class AVLTreeTest
         int i;
         AVLTree<Integer> tree = new AVLTree<Integer>();
 
-        System.out.print("== ÒÀ´ÎÌí¼Ó: ");
+        System.out.print("== ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
         for (i = 0; i < arr.length; i++)
         {
             System.out.print( arr[i]+" ");
             tree.add(arr[i]);
         }
 
-        System.out.println("\nÖÐÐò±éÀú: ");
+        System.out.println("\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
         tree.inOrder();
         System.out.println();
         
-        System.out.println("== ²ã´Î±éÀú: ");
-        tree.levelOrder();
-        System.out.println();
-        
-
-        System.out.println("== ²ã´Î±éÀú1: ");
+         System.out.println("== ï¿½ï¿½Î±ï¿½ï¿½ï¿½: ");
         tree.levelOrder1();
         System.out.println();
         
-        System.out.println("== ²ã´Î±éÀú2: ");
+        /*  
+        System.out.println("== ï¿½ï¿½Î±ï¿½ï¿½ï¿½1: ");
+        tree.levelOrder1();
+        System.out.println();
+        
+        System.out.println("== ï¿½ï¿½Î±ï¿½ï¿½ï¿½2: ");
         tree.levelOrder2();
         System.out.println();
       
-        System.out.println("== Ê÷µÄ¸ß¶È: " + tree.height());
-        System.out.println("== ×îÐ¡Öµ: " + tree.minimum());
-        System.out.println("== ×î´óÖµ: " + tree.maximum());
+        System.out.println("== ï¿½ï¿½ï¿½Ä¸ß¶ï¿½: " + tree.height());
+        System.out.println("== ï¿½ï¿½Ð¡Öµ: " + tree.minimum());
+        System.out.println("== ï¿½ï¿½ï¿½Öµ: " + tree.maximum());
        
-        System.out.println("µ±Ç°Ê÷µÄ¸ù½ÚµãÊÇ: "+ tree.getRoot().key);
+        System.out.println("ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ä¸ï¿½Úµï¿½ï¿½ï¿½: "+ tree.getRoot().key);
         System.out.println("");        
         
         i = 7;
-        System.out.println("== É¾³ý½Úµã:" + i);
+        System.out.println("== É¾ï¿½ï¿½Úµï¿½:" + i);
         tree.remove(i);
 
-        System.out.println("== ÐÂÊ÷µÄ¸ß¶È:" + tree.height());
-        System.out.println("== ÐÂÊ÷µÄ×îÐ¡Öµ: " + tree.minimum());
-        System.out.println("== ÐÂÊ÷µÄ×î´óÖµ: " + tree.maximum());
-        System.out.println("== ÐÂÊ÷µÄÏêÏ¸ÐÅÏ¢: ");
+        System.out.println("== ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß¶ï¿½:" + tree.height());
+        System.out.println("== ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡Öµ: " + tree.minimum());
+        System.out.println("== ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ: " + tree.maximum());
+        System.out.println("== ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ï¢: ");
         tree.levelOrder1();
-        System.out.println("\nÐÂÊ÷µÄ¸ù½ÚµãÊÇ: "+ tree.getRoot().key);
-
-        // Ïú»Ù¶þ²æÊ÷
+        System.out.println("\nï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½Úµï¿½ï¿½ï¿½: "+ tree.getRoot().key);
+*/
+        // ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½
         tree.destroy();
     }
 

@@ -1,6 +1,11 @@
 package leetCode.easy;
 
+/*
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
 
+For example, given the array [−2,1,−3,4,−1,2,1,−5,4],
+the contiguous subarray [4,−1,2,1] has the largest sum = 6.
+ */
 
 public class MaxSubArray
 {
@@ -8,9 +13,9 @@ public class MaxSubArray
     public static void main(String[] args)
     {
 
-        int[] a = {-2,1};
+        int[] a = {-2,1,3,5,-7};
         
-        System.out.println(maxSubArray(a));
+        System.out.println(maxSubArray1(a));
     }
 
     public static int maxSubArray1(int[] a)
@@ -27,14 +32,12 @@ public class MaxSubArray
             {
                 curSum = a[i];
                 start = i;
-
             }
 
             if (curSum > maxSum)
             {
                 maxSum = curSum;
                 end = i;
-
             }
         }
         System.out.println("start index " + start);

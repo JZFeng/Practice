@@ -122,11 +122,23 @@ public class BinaryMinHeap
         }
     }
 
+    
+    /**
+     
+Sift down root's value. Sifting is done as following:
+if current node has no children, sifting is over;
+if current node has one child: check, if heap property is broken, then swap current node's value and child value; sift down the child;
+if current node has two children: find the smallest of them. If heap property is broken, then swap current node's value and selected child value; sift down the child.
+
+Find the smallest element of the two childrens.
+     */
     private void siftDown(int nodeIndex)
     {
         int leftChildIndex, rightChildIndex, minIndex, tmp;
+        
         leftChildIndex = getLeftChildIndex(nodeIndex);
         rightChildIndex = getRightChildIndex(nodeIndex);
+        
         if (rightChildIndex >= heapSize)
         {
             if (leftChildIndex >= heapSize)

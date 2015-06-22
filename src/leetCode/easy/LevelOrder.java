@@ -8,6 +8,23 @@ import java.util.Queue;
 
 import leetCode.utility.TreeNode;
 
+/*
+ Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+ For example:
+ Given binary tree {3,9,20,#,#,15,7},
+ 3
+ / \
+ 9  20
+ /  \
+ 15   7
+ return its level order traversal as:
+ [
+ [3],
+ [9,20],
+ [15,7]
+ ]
+ */
 
 public class LevelOrder
 {
@@ -17,51 +34,38 @@ public class LevelOrder
 
     }
 
-    public static void levelOrder(TreeNode root)
+    public void levelOrder(TreeNode mRoot)
     {
-        if (root == null)
-            return;
-
-        LinkedList<Integer> queue = new LinkedList<Integer>();
-        queue.offer(root.val);
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(mRoot);
 
         while (!queue.isEmpty())
         {
-            System.out.println(queue.poll());
+            TreeNode currNode = queue.poll();
+            System.out.print(currNode.val + " ");
 
-            if (root.left != null)
-                queue.offer(root.left.val);
-            if (root.right != null)
-                queue.offer(root.right.val);
+            if (currNode.left != null)
+                queue.offer(currNode.left);
+            if (currNode.right != null)
+                queue.offer(currNode.right);
         }
-
     }
-    
-    
-    
-    
-        
-    public static List<List<Integer>> levelOrder1(TreeNode root)
+
+    public void levelOrder1(TreeNode mRoot)
     {
-        List<List<Integer>> results = new ArrayList<List<Integer>>();
-
-        if(root == null)
-            return results;
-        
-
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.offer(root);
+        queue.offer(mRoot);
+
         int nodesInCurrentLevel = 1;
         int nodesInNextLevel = 0;
-        
-        List<Integer> levelArray = new ArrayList<Integer>();
-        results.add(levelArray);
+
         while (!queue.isEmpty())
         {
             TreeNode currNode = queue.poll();
             nodesInCurrentLevel--;
-            levelArray.add(currNode.val);
-            
+
+            System.out.print(currNode.val + " ");
+
             if (currNode.left != null)
             {
                 queue.offer(currNode.left);
@@ -76,21 +80,12 @@ public class LevelOrder
 
             if (nodesInCurrentLevel == 0)
             {
+                System.out.println();
                 nodesInCurrentLevel = nodesInNextLevel;
                 nodesInNextLevel = 0;
-                if(nodesInCurrentLevel >0)
-                {
-                    levelArray = new ArrayList<Integer>();
-                    results.add(levelArray);
-                    
-                }
             }
         }
 
-        return results;
     }
-
-
- 
 
 }

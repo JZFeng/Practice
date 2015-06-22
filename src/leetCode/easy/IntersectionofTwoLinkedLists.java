@@ -2,6 +2,30 @@ package leetCode.easy;
 
 import leetCode.utility.ListNode;
 
+/*
+ Write a program to find the node at which the intersection of two singly linked lists begins.
+
+ 
+
+For example, the following two linked lists:
+
+A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+begin to intersect at node c1.
+
+ 
+
+Notes:
+
+If the two linked lists have no intersection at all, return null.
+The linked lists must retain their original structure after the function returns.
+You may assume there are no cycles anywhere in the entire linked structure.
+Your code should preferably run in O(n) time and use only O(1) memory.
+ 
+ */
 public class IntersectionofTwoLinkedLists
 {
 
@@ -9,58 +33,66 @@ public class IntersectionofTwoLinkedLists
     {
         ListNode l1 = new ListNode(1);
         l1.next = new ListNode(5);
-        
+
         ListNode l2 = new ListNode(2);
         l2.next = new ListNode(5);
-        
 
         ListNode tmp = getIntersectionNode(l1, l2);
-        
+
     }
-    
+
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB)
     {
         if (headA == null || headB == null)
             return null;
-        ListNode h1 = headA;
-        ListNode h2 = headB;
-        int count1 = 1, count2 = 1;
-        while (h1.next != null)
+
+        int lenA = length(headA);
+        int lenB = length(headB);
+
+        if (lenA > lenB)
         {
-            count1++;
-            h1 = h1.next;
+            int steps = lenA - lenB;
+            while (steps > 0)
+            {
+                headA = headA.next;
+                steps--;
+            }
         }
-        while (h2.next != null)
+        else if (lenB > lenA)
         {
-            count2++;
-            h2 = h2.next;
+            int steps = lenB - lenA;
+            while (steps > 0)
+            {
+                headB = headB.next;
+                steps--;
+            }
         }
-        if (h1 != h2)
-            return null;
-        else
+
+        ListNode nodeA = headA;
+        ListNode nodeB = headB;
+
+        while (nodeA != null)
         {
-            int count = Math.abs(count1 - count2);
-            if (count2 > count1)
-            {
-                h1 = headB;
-                h2 = headA;
-            }
-            else
-            {
-                h1 = headA;
-                h2 = headB;
-            }
-            while ((count--) > 0)
-            {
-                h1 = h1.next;
-            }
-            while (h1 != null && h2 != null && h1 != h2)
-            {
-                h1 = h1.next;
-                h2 = h2.next;
-            }
-            return h1;
+            if (nodeA == nodeB)
+                return nodeA;
+
+            nodeA = nodeA.next;
+            nodeB = nodeB.next;
         }
+
+        return null;
     }
 
+    private static int length(ListNode head)
+    {
+        int len = 1;
+        ListNode node = head;
+        while (node.next != null)
+        {
+            node = node.next;
+            len++;
+        }
+
+        return len;
+    }
 }

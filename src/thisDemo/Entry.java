@@ -4,13 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Method;
+
+import dataStructure.hashing.SeparateChaining.LinkedList;
 
 public class Entry
 {
 
-    public static void main(String[] args) throws UnsupportedEncodingException
+    public static void main(String[] args) throws UnsupportedEncodingException, SecurityException, ClassNotFoundException
     {
-        System.out.println( System.getProperty("file.encoding"));
+/*        System.out.println( System.getProperty("file.encoding"));
         String s = "我是冯建中";
         String s1 = new String(s.getBytes("UTF-8"),"UTF-8");
         System.out.println(s1);
@@ -33,8 +36,13 @@ public class Entry
         {
             System.out.println(" ����Ĳ������� ");
         }
-        
+        */
        
+        Method[] a = Class.forName("java.util.LinkedList").getClass().getMethods();
+        for (int i = 0; i< a.length ; i++)
+        {
+            System.out.println(a[i].getName());
+        }
     }
 
 }
