@@ -1,4 +1,7 @@
 package leetCode.easy;
+
+import leetCode.utility.ListNode;
+
 /*
  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 
@@ -15,13 +18,15 @@ public class DeleteDuplicates
 
     public static void main(String[] args)
     {
-        ListNode head = new ListNode(10);
-        head.next = new ListNode(10);
-        head.next.next = new ListNode(10);
+        ListNode head = ListNode.buildListFromArray(new int[]{1,2,3,3,3,4,5});
+        ListNode.printList(head);
+        System.out.println();
+        deleteDuplicates(head);
+        ListNode.printList(head);
 
     }
 
-    public ListNode deleteDuplicates(ListNode head)
+    public static ListNode deleteDuplicates(ListNode head)
     {
         ListNode n = head;
         while (n != null)
@@ -38,17 +43,6 @@ public class DeleteDuplicates
         return head;
     }
 
-    public static class ListNode
-    {
-        int val;
-
-        ListNode next;
-
-        ListNode(int x)
-        {
-            val = x;
-            next = null;
-        }
-    }
+   
 
 }

@@ -20,16 +20,11 @@ public class RemoveDuplicates
     public static void main(String[] args)
     {
         int a[] = new int[]
-        {};
+        {1,1,1,3,3,4};
 
 
         System.out.println(removeDuplicates(a));
- /*       LinkedList<Integer> ll = removeDuplicates1(a);
-
-        for (Integer integer : ll)
-        {
-            System.out.print(integer + ",");
-        }*/
+ 
     }
 
     /**
@@ -37,38 +32,21 @@ public class RemoveDuplicates
      * One for current valid last value, another for possible candidates. 
      * Keep comparing possible candidates with last value.
      **/
-    public static int removeDuplicates(int[] a)
+    public static int removeDuplicates(int[] A)
     {
-        if (a == null || a.length == 0)
+        int len = A.length;
+        if (len == 0)
             return 0;
-
-        int k = 0;
-        for (int i = 1; i < a.length; i++)
-        {
-            if (a[i - 1] != a[i])
-            {
-                k++;
-                a[k] = a[i];
+        int count = 1;
+        for (int i = 1; i < len; i++) {
+            if (A[i] == A[i - 1]) {
+                continue;
+            }else{
+                A[count] = A[i];
+                count++;
             }
-
         }
-        return k + 1;
+        return count;
     }
 
-    public static LinkedList<Integer> removeDuplicates1(int[] a)
-    {
-        if (a == null || a.length == 0)
-            return null;
-
-        LinkedList<Integer> ll = new LinkedList<Integer>();
-        ll.add(new Integer(a[0]));
-
-        for (int i = 1; i < a.length; i++)
-        {
-            if (a[i] != a[i - 1])
-                ll.add(new Integer(a[i]));
-        }
-
-        return ll;
-    }
 }
