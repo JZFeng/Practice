@@ -23,7 +23,6 @@ public class DeleteDuplicates
         System.out.println();
         deleteDuplicates(head);
         ListNode.printList(head);
-
     }
 
     public static ListNode deleteDuplicates(ListNode head)
@@ -42,7 +41,5 @@ public class DeleteDuplicates
         }
         return head;
     }
-
-   
 
 }

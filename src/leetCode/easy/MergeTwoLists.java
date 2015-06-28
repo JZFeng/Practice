@@ -1,4 +1,7 @@
 package leetCode.easy;
+
+import leetCode.utility.ListNode;
+
 /*
  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
  */
@@ -7,19 +10,9 @@ public class MergeTwoLists
 
     public static void main(String[] args)
     {
-        ListNode l1 = new ListNode(1);
-        l1.next = new ListNode(3);
-        l1.next.next = new ListNode(5);
-
-        ListNode l2 = new ListNode(-1);
-        l2.next = new ListNode(4);
-        ListNode head = mergeTwoLists(l1, l2);
-        
-        while(head!=null)
-        {
-            System.out.print(head.val +",");
-            head = head.next;
-        }
+        ListNode l1 = ListNode.buildListFromArray(new int[]{-1,2,3,5,7});
+        ListNode l2 = ListNode.buildListFromArray(new int[]{-2,1,4,6});
+        ListNode.printList(mergeTwoLists(l1, l2));
 
     }
 
@@ -72,16 +65,4 @@ public class MergeTwoLists
 
     }
 
-    public static class ListNode
-    {
-        int val;
-
-        ListNode next;
-
-        ListNode(int x)
-        {
-            val = x;
-            next = null;
-        }
-    }
 }
