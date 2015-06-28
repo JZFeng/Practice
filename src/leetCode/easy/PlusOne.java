@@ -9,8 +9,12 @@ public class PlusOne
 
     public static void main(String[] args)
     {
-        int[] digits = { 9, 8 };
+        int[] digits = { 9, 9,9 };
         int[] results = plusOne(digits);
+        for (int i : results)
+        {
+            System.out.println(i);
+        }
 
     }
 
@@ -41,7 +45,6 @@ public class PlusOne
             int[] newDigits = new int[digits.length + 1];
             System.arraycopy(digits, 0, newDigits, 1, digits.length);
             newDigits[0] = 1;
-            newDigits[1] = 0;
             return newDigits;
         }
 

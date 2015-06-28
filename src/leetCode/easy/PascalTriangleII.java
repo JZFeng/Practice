@@ -17,6 +17,7 @@ public class PascalTriangleII
     public static void main(String[] args)
     {
         List<Integer> a = getRow(4);
+        System.out.println(a);
 
     }
 
@@ -29,6 +30,7 @@ public class PascalTriangleII
         ArrayList<Integer> res = new ArrayList<Integer>();
         if (rowIndex < 0)
             return res;
+        
         res.add(1);
        
         for (int i = 1; i <= rowIndex; i++)
