@@ -9,11 +9,12 @@ public class StrStr
 
     public static void main(String[] args)
     {
+        System.out.println(strStr("Hello World", "World"));
     }
 
    
-    public static int strStr(String pattern, String text)
+    public static int strStr(String haystack, String needle)
     {
-        return text.indexOf(pattern);
+        return haystack.indexOf(needle);
     }
 }
