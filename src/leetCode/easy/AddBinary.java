@@ -38,6 +38,7 @@ public class AddBinary
             i--;
             j--;
         }
+        
         while (i >= 0)
         {
             int digit = (int) (a.charAt(i) - '0') + carry;
@@ -54,6 +55,7 @@ public class AddBinary
             res.append(digit);
             j--;
         }
+        
         if (carry > 0)
         {
             res.append(carry);
