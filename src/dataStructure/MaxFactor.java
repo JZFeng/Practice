@@ -1,5 +1,5 @@
 package dataStructure;
-
+//最大公约数
 public class MaxFactor
 {
     public static long commonDivision(long a, long b)

@@ -139,12 +139,12 @@ Find the smallest element of the two childrens.
         leftChildIndex = getLeftChildIndex(nodeIndex);
         rightChildIndex = getRightChildIndex(nodeIndex);
         
-        if (rightChildIndex >= heapSize)
+        if (rightChildIndex >= heapSize) //no right child
         {
-            if (leftChildIndex >= heapSize)
+            if (leftChildIndex >= heapSize) // no left child
                 return;
             else
-                minIndex = leftChildIndex;
+                minIndex = leftChildIndex; 
         }
         else
         {
@@ -154,6 +154,7 @@ Find the smallest element of the two childrens.
                 minIndex = rightChildIndex;
         }
         
+        //find minIndex
         
         if (data[nodeIndex] > data[minIndex])
         {

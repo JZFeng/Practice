@@ -19,11 +19,11 @@ public class ListNode
         
         ListNode head = new ListNode(arr[0]);
         int length = arr.length;
-        ListNode tmp = head;
+        ListNode cur = head;
         for(int i = 1; i < length; i++)
         {
-            tmp.next = new ListNode(arr[i]);
-            tmp = tmp.next;
+            cur.next = new ListNode(arr[i]);
+            cur = cur.next;
         }
         
         return head;
@@ -40,6 +40,7 @@ public class ListNode
             head = head.next;
         }
     }
+    
     
     
 }
