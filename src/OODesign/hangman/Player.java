@@ -1,4 +1,4 @@
-package Linkedin.OODesign.hangman;
+package OODesign.hangman;
 
 public interface Player {
 

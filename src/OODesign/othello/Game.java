@@ -1,4 +1,4 @@
-package Linkedin.OODesign.othello;
+package OODesign.othello;
 
 public class Game {
 

@@ -1,4 +1,4 @@
-package Linkedin.OODesign.mastermind;
+package OODesign.mastermind;
 
 public class MasterMind {
 /*

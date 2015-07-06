@@ -1,4 +1,4 @@
-package Linkedin.OODesign.tictactoe;
+package OODesign.tictactoe;
 
 public class TicTacToe 
 {

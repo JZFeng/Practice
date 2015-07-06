@@ -1,4 +1,4 @@
-package Linkedin.OODesign.elevator;
+package OODesign.elevator;
 
 import java.util.ArrayList;
 

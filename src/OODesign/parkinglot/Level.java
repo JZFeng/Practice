@@ -1,4 +1,4 @@
-package Linkedin.OODesign.parkinglot;
+package OODesign.parkinglot;
 
 public class Level {
 

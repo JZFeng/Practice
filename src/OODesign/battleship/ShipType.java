@@ -1,4 +1,4 @@
-package Linkedin.OODesign.battleship;
+package OODesign.battleship;
 
 public enum ShipType 
 {
