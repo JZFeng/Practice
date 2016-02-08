@@ -20,8 +20,11 @@ public class TitleToNumber
     public static void main(String[] args)
     {
 
+        testLoop();
         System.out.println(titleToNumber("YZ"));
+        
     }
+   
 
     public static int titleToNumber(String s)
     {
@@ -39,5 +42,21 @@ public class TitleToNumber
 
         return result;
     }
-
+    
+    public static void testLoop()
+    {
+        for (int m = 0; m < 3; m++)
+        {
+            for (int n = 0; n < 3; n++)
+            {
+                for(int i = m*3;i<m*3+3;i++)
+                {
+                    for(int j = n*3;j >j*3+3;j++)
+                    {
+                        System.out.println("a"+"["+i+"]"+"["+j+"]");
+                    }
+                }
+            }
+        }
+    }
 }

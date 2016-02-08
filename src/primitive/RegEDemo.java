@@ -15,14 +15,17 @@ public class RegEDemo
 {
     public static void main(String[] args) throws Exception
     {
-        String source = "D/com.telenav.arp(29995): Denali: com.telenav.arp.module.a.d: SearchPageTask ReceiveSearchResponse duration is:40D/com.telenav.arp(29995): Denali: com.telenav.arp.module.a.d: SearchPageTask ReceiveSearchResponse duration is:111D/com.telenav.arp(29995): Denali: com.telenav.arp.module.a.d: SearchPageTask ReceiveSearchResponse duration is:222D/com.telenav.arp(29995): Denali: com.telenav.arp.module.a.d: SearchPageTask ReceiveSearchResponse duration is:433";
-        Pattern p = Pattern.compile("(.*:)(\\d*)");
+        String source = "r=90.0]ReceiveSearchResponse duration is:6661D/4242): ARP: com.telenav.arp.b.d.s: rawLocation = Location[ 37.378900,-122.010740 acc=??? et=?!? alt=0.0 vel=0.0 bear=90.0 {Bundle[{timestamp=-6708807}]}], vehicleLocation = Location[ 37.378897,-122.010719 acc=??? t=?!? et=?!? alt=-1000.0 vel=0.0 bear=90.0]ReceiveSearchResponse duration is:921D/com.telenav.arp( 4242): Denali: com.telenav.common.logshed.j: ";
+//        Pattern p = Pattern.compile("(.*:)(\\d*)");
+        Pattern p = Pattern.compile(".*ReceiveSearchResponse duration is:(\\d*).*");
         Matcher m = p.matcher(source);
+        String number = null;
         
         while(m.find())
         {
-            System.out.println(m.group(2));
+            number = m.group(1);
         }
+        System.out.println(number);
 //        System.out.println(a[a.length-1]);
         
         
