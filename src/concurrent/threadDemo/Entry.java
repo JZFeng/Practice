@@ -5,6 +5,7 @@ public class Entry
 
     public Entry()
     {
+        //
     }
 
     public static void main(String[] args)
