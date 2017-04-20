@@ -43,7 +43,7 @@ public class DoubleLinkedList implements Iterable
     public void addBefore(Dlnode p, Object x)
     {
         Dlnode newNode = new Dlnode(p.prev, x, p);
-        newNode.prev.next = newNode;
+        p.prev.next = newNode;
         p.prev = newNode;
         size++;
         modAmount++;
